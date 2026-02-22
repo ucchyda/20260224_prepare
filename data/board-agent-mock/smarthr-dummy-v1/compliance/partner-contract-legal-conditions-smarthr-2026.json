@@ -1,0 +1,44 @@
+{
+  "document_id": "PARTNER-LEGAL-2026",
+  "company": "SmartHR",
+  "document_type": "partner_contract_conditions",
+  "period": "2026",
+  "definition": "提携先契約における監査・同席・保存条件の比較表。",
+  "partnerships": [
+    {
+      "partner": "A社（LLM連携）",
+      "contract_status": "条件付き承認",
+      "start": "2026-01-10",
+      "end": "2027-12-31",
+      "storage_region": "Japan-only（原則）",
+      "audit_right": "監査前提: 監査人同席権あり、四半期レビュー要求",
+      "incident_reporting": "重大インシデント24時間以内、重要インシデント2時間以内",
+      "data_governance": [
+        "匿名化キーは提携先に返却禁止",
+        "アクセスログの週次提出"
+      ],
+      "termination_clause": "監査条項違反が3回連続であれば2営業日で中断可",
+      "evidence_id": "PARTNER-LEGAL-2026#A"
+    },
+    {
+      "partner": "B社（勤怠連携）",
+      "contract_status": "再交渉中",
+      "start": "2025-08-01",
+      "end": "2026-08-01",
+      "storage_region": "APAC+Japan",
+      "audit_right": "監査同席は事前要請制",
+      "incident_reporting": "重大インシデント4時間以内",
+      "data_governance": [
+        "保存分離（個人データと監査データの分離）",
+        "削除要求の処理SLAを明文化"
+      ],
+      "termination_clause": "データ移行計画未提示時は更新不可",
+      "evidence_id": "PARTNER-LEGAL-2026#B"
+    }
+  ],
+  "open_items": [
+    {"item": "B社の監査同席権を遡及的に明示すべきか", "owner": "法務部長", "due": "2026-02-28"},
+    {"item": "A社の保存分離監査ログが実装されているか", "owner": "CISO", "due": "2026-02-24"}
+  ],
+  "governance_notes": "監査・インシデント対応を優先し、価格改定よりも安全性要件を先に確定する"
+}

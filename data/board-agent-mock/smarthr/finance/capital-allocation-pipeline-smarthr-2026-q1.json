@@ -1,0 +1,118 @@
+{
+  "document_id": "CAPAL-2026-Q1",
+  "company": "SmartHR",
+  "document_type": "capital_allocation_pipeline",
+  "period": "2026-Q1",
+  "currency": "JPY",
+  "unit": "million",
+  "definition": "会議で論点化される投資・維持・還元施策の候補。採択時の門番値を明示。",
+  "projects": [
+    {
+      "project_id": "CA-01",
+      "name": "AI採用アシスタント高度化（説明可能性付き）",
+      "category": "成長投資",
+      "owner": "CTO",
+      "capex": 220,
+      "opex_additional": 95,
+      "time_to_value_months": 4,
+      "expected_npv": 540,
+      "expected_irr": 0.22,
+      "payback_months": 14,
+      "dependency": ["ROADMAP-2026-Q1#AI-explainability", "PRD_v2"],
+      "hurdle_rule": {
+        "min_irr": 0.15,
+        "target_npv": 300,
+        "max_payback_months": 18
+      },
+      "risk": {
+        "type": "execution",
+        "detail": "説明不能発言が営業で受け入れを阻害するリスク"
+      },
+      "status": "条件付き保留"
+    },
+    {
+      "project_id": "CA-02",
+      "name": "監査ログ再現基盤刷新（可観測性向上）",
+      "category": "防御的投資",
+      "owner": "CISO",
+      "capex": 180,
+      "opex_additional": 70,
+      "time_to_value_months": 3,
+      "expected_npv": 260,
+      "expected_irr": 0.17,
+      "payback_months": 10,
+      "dependency": ["RISK-REVAMP-02", "SOC2-gap-remediation"],
+      "hurdle_rule": {
+        "min_irr": 0.12,
+        "target_npv": 200,
+        "max_payback_months": 12
+      },
+      "risk": {
+        "type": "regulatory",
+        "detail": "証跡要件変更で想定工数が上振れ"
+      },
+      "status": "高優先"
+    },
+    {
+      "project_id": "CA-03",
+      "name": "営業再配置（解約率対策）",
+      "category": "効率化",
+      "owner": "CFO",
+      "capex": 60,
+      "opex_reduction": 120,
+      "time_to_value_months": 2,
+      "expected_npv": 300,
+      "expected_irr": 0.35,
+      "payback_months": 6,
+      "dependency": ["RACI-2026-Q1#C2", "CSO-LOSS_RISK_PB"],
+      "hurdle_rule": {
+        "min_irr": 0.20,
+        "target_npv": 180,
+        "max_payback_months": 8
+      },
+      "risk": {
+        "type": "execution",
+        "detail": "現場反発で短期で進捗鈍化しやすい"
+      },
+      "status": "実行候補"
+    },
+    {
+      "project_id": "CA-04",
+      "name": "一部自社株買い（資本効率改善）",
+      "category": "還元施策",
+      "owner": "取締役会",
+      "capex": 0,
+      "opex_additional": 0,
+      "time_to_value_months": 1,
+      "expected_npv": 0,
+      "expected_irr": 0,
+      "payback_months": null,
+      "dependency": ["DEBT-2026-02", "CAP-Policy-01"],
+      "hurdle_rule": {
+        "conditions": [
+          "debt_headroom >= 0.0",
+          "DSCR >= 1.20",
+          "資金余力ランク >= Medium"
+        ]
+      },
+      "risk": {
+        "type": "capital_structure",
+        "detail": "借入余力が薄い局面では逆風リスク"
+      },
+      "status": "保留（条件付き）"
+    }
+  ],
+  "policy": {
+    "max_growth_investment_to_capex_ratio": 0.35,
+    "minimum_cash_reserve_coverage_months": 5,
+    "capital_policy": "調達余力重視、利益拡大施策優先、還元はキャッシュ安定条件付き"
+  },
+  "ranking_logic": {
+    "weights": {
+      "value_score": 0.45,
+      "risk_score": 0.30,
+      "time_to_value": 0.15,
+      "regulatory_alignment": 0.10
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "document_id": "FVA-2025Q4-2026Q1",
+  "company": "SmartHR",
+  "document_type": "forecast_vs_actual",
+  "currency": "JPY",
+  "unit": "million",
+  "definition": "四半期ベースの予実差分。差分の根拠母集団と修正方針を議論できるよう、説明行を付与。",
+  "periods": [
+    {
+      "period": "2025-Q4",
+      "budget": {
+        "revenue": 11480,
+        "gross_profit": 8200,
+        "personnel_cost": 11100,
+        "training_cost": 520,
+        "sales_expense": 1220,
+        "rd_expense": 1540,
+        "sg_and_a": 1120,
+        "ebitda": 820
+      },
+      "actual": {
+        "revenue": 11120,
+        "gross_profit": 7850,
+        "personnel_cost": 10990,
+        "training_cost": 560,
+        "sales_expense": 1250,
+        "rd_expense": 1565,
+        "sg_and_a": 1170,
+        "ebitda": 655
+      },
+      "variance": {
+        "revenue": -360,
+        "gross_profit": -350,
+        "personnel_cost": 110,
+        "training_cost": 40,
+        "sales_expense": 30,
+        "rd_expense": 25,
+        "sg_and_a": 50,
+        "ebitda": -165
+      },
+      "variance_pct": {
+        "revenue": -3.13,
+        "gross_profit": -4.27,
+        "ebitda": -20.12
+      },
+      "notes": "主要要因は解約先行の営業工数増と新規採用トレーニング遅延。"
+    },
+    {
+      "period": "2026-Q1",
+      "budget": {
+        "revenue": 11680,
+        "gross_profit": 8400,
+        "personnel_cost": 11400,
+        "training_cost": 540,
+        "sales_expense": 1270,
+        "rd_expense": 1580,
+        "sg_and_a": 1160,
+        "ebitda": 930
+      },
+      "actual": {
+        "revenue": 11340,
+        "gross_profit": 8240,
+        "personnel_cost": 11280,
+        "training_cost": 610,
+        "sales_expense": 1325,
+        "rd_expense": 1620,
+        "sg_and_a": 1200,
+        "ebitda": 860
+      },
+      "variance": {
+        "revenue": -340,
+        "gross_profit": -160,
+        "personnel_cost": 120,
+        "training_cost": 70,
+        "sales_expense": 55,
+        "rd_expense": 40,
+        "sg_and_a": 40,
+        "ebitda": -70
+      },
+      "variance_pct": {
+        "revenue": -2.91,
+        "gross_profit": -1.90,
+        "ebitda": -7.53
+      },
+      "notes": "SLA再設計遅れで一時費用が発生。研修費は採用増を補正したが売上回復は未達。"
+    }
+  ],
+  "trend": {
+    "ebitda_trend_vs_budget": "2四半期連続で計画を下回る",
+    "gross_margin_trend": "緩慢な回復、但し営業費の抑制なし",
+    "revenue_risk": "中",
+    "recommended_focus": "採用パフォーマンスと顧客定着の母集団整合を先に担保"
+  },
+  "action_plan_snapshot": [
+    "価格実験の母集団を中堅企業に統一し、比較可能なKPIを再定義",
+    "監査再現性タスクをQ2入札前のKPIに組み込む",
+    "営業再訓練コストを翌四半期の固定費化し、月次で再評価"
+  ]
+}

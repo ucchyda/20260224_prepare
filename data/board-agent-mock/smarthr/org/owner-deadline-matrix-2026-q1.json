@@ -1,0 +1,99 @@
+{
+  "document_id": "RACI-2026-Q1",
+  "company": "SmartHR",
+  "document_type": "owner_deadline_matrix",
+  "period": "2026-Q1",
+  "definition": "取締役会で起票された未決事項の責任者・期限・評価者を記録",
+  "items": [
+    {
+      "issue_id": "RACI-01",
+      "agenda": "退会予兆スコアの説明可能性を明文化",
+      "owner": "CPO",
+      "backup": "CTO",
+      "accountable": "COO",
+      "informed": ["CFO", "CS部長"],
+      "due": "2026-01-13",
+      "status": "完了",
+      "risk": "低"
+    },
+    {
+      "issue_id": "RACI-02",
+      "agenda": "同意状態ダッシュボード試験版公開",
+      "owner": "法務部長",
+      "backup": "法務アシスタント",
+      "accountable": "CEO",
+      "informed": ["CTO", "CISO"],
+      "due": "2026-01-15",
+      "status": "遅延",
+      "risk": "中",
+      "evidence": "COMPLY-AUDIT-2026-Q1#finding-01"
+    },
+    {
+      "issue_id": "RACI-03",
+      "agenda": "AI誤通知率閾値の見直し",
+      "owner": "AI開発責任者",
+      "backup": "CTO",
+      "accountable": "CPO",
+      "informed": ["CFO", "営業部門"],
+      "due": "2026-01-20",
+      "status": "進行中",
+      "risk": "高"
+    },
+    {
+      "issue_id": "RACI-04",
+      "agenda": "監査ログ保存ルールの最終化",
+      "owner": "CISO",
+      "backup": "セキュリティ責任者",
+      "accountable": "CFO",
+      "informed": ["法務部長", "CTO"],
+      "due": "2026-01-25",
+      "status": "完了",
+      "risk": "中"
+    },
+    {
+      "issue_id": "RACI-05",
+      "agenda": "2件顧客の監査再現時間短縮報告",
+      "owner": "CISO",
+      "backup": "SREマネージャー",
+      "accountable": "CISO",
+      "informed": ["法務部長", "CEO"],
+      "due": "2026-02-24",
+      "status": "進行中",
+      "risk": "高"
+    },
+    {
+      "issue_id": "RACI-06",
+      "agenda": "提携契約改訂版の最終承認",
+      "owner": "法務部長",
+      "backup": "CFO",
+      "accountable": "CEO",
+      "informed": ["CISO", "CTO"],
+      "due": "2026-02-26",
+      "status": "進行中",
+      "risk": "高",
+      "evidence": "PARTNER-LEGAL-2026#appendix-2"
+    },
+    {
+      "issue_id": "RACI-07",
+      "agenda": "3月予算配分素案提出",
+      "owner": "CFO",
+      "backup": "経営企画部長",
+      "accountable": "CEO",
+      "informed": ["全取締役"],
+      "due": "2026-02-28",
+      "status": "未着手",
+      "risk": "高"
+    },
+    {
+      "issue_id": "RACI-08",
+      "agenda": "営業・CS再編による稼働率是正",
+      "owner": "COO",
+      "backup": "営業部長",
+      "accountable": "COO",
+      "informed": ["CFO", "CPO"],
+      "due": "2026-02-27",
+      "status": "進行中",
+      "risk": "中"
+    }
+  ]
+}

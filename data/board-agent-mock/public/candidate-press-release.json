@@ -1,0 +1,34 @@
+{
+  "document_id": "PR-2026-02-A",
+  "company": "Company X",
+  "topic": "2026年度Q1事業計画（ドラフト）",
+  "published_at": "2026-02-20",
+  "language": "ja",
+  "drafts": [
+    {
+      "version": "v1.0",
+      "title": "AI導入と生産性向上を柱に、2026年度を取りまとめ",
+      "body": "全社の採用工数を来期比12%削減し、離職率を2ポイント改善する。既存体制を活かした改善投資のみで完結する見込み。",
+      "supports": ["内部評価レポートv0.9", "kpi_series_snapshot_2026_01"],
+      "notes": "根拠データの母集団定義と効果測定設計が未確定"
+    },
+    {
+      "version": "v1.1",
+      "title": "AI導入と生産性向上を柱に、2026年度を取りまとめ",
+      "body": "全社の採用工数を来期比7%削減し、離職率を2ポイント改善を目標とする。追加予算5000万円の枠を要する。",
+      "supports": ["M-2026-01議事録", "kpi_headcount_trend"],
+      "notes": "削減率に関する検証が更新時点で未確定。"
+    }
+  ],
+  "variant_deltas": [
+    {
+      "from": "v1.0",
+      "to": "v1.1",
+      "delta": "採用工数削減率を12%→7%に修正。削減目標だけでなく必要追加予算5000万円を明示。"
+    }
+  ],
+  "governance_flags": {
+    "evidence_required": true,
+    "recommended_question": "削減目標の母集団（部門/期間）と測定方法は何か。"
+  }
+}

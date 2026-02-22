@@ -1,0 +1,121 @@
+{
+  "version": "smarthr-v1.2-meetings-index-2026-02-22",
+  "scope": "SmartHR mock board meeting materials",
+  "currency": "JPY",
+  "updated_at": "2026-02-22T12:00:00+09:00",
+  "paths": {
+    "agenda_dir": "agenda",
+    "minutes_dir": "minutes",
+    "transcript_dir": "transcript",
+    "meta_file": "../board-minutes-meta.json"
+  },
+  "items": [
+    {
+      "meeting_id": "M-2026-01",
+      "material_type": "board_summary",
+      "date": "2026-01-22",
+      "agenda": [
+        "agenda/board-minutes-2026-02-draft.md"
+      ],
+      "minutes": null,
+      "transcript": null,
+      "notes": "1月分監査結果の要約（サンプル）"
+    },
+    {
+      "meeting_id": "M-2026-02-draft",
+      "material_type": "board_draft",
+      "date": "2026-02-26",
+      "agenda": [
+        "agenda/board-minutes-2026-02-draft.md",
+        "agenda/20260224_board_meeting_prep_agenda.md"
+      ],
+      "minutes": null,
+      "transcript": null,
+      "notes": "次回会議前提の草案"
+    },
+    {
+      "meeting_id": "SM-2026-01-06",
+      "material_type": "board_minutes_smarthr",
+      "date": "2026-01-06",
+      "agenda": null,
+      "minutes": "minutes/20260106_議事録_SmartHR.md",
+      "transcript": null,
+      "notes": "第1回: 財務健全性と採用遅延の再確認"
+    },
+    {
+      "meeting_id": "SM-2026-01-13",
+      "material_type": "board_minutes_smarthr",
+      "date": "2026-01-13",
+      "agenda": null,
+      "minutes": "minutes/20260113_議事録_SmartHR.md",
+      "transcript": null,
+      "notes": "第2回: 顧客満足とSLA遅延を論点化"
+    },
+    {
+      "meeting_id": "SM-2026-01-20",
+      "material_type": "board_minutes_smarthr",
+      "date": "2026-01-20",
+      "agenda": null,
+      "minutes": "minutes/20260120_議事録_SmartHR.md",
+      "transcript": null,
+      "notes": "第3回: 借入条件と開発ロードマップの整合"
+    },
+    {
+      "meeting_id": "SM-2026-01-27",
+      "material_type": "board_minutes_smarthr",
+      "date": "2026-01-27",
+      "agenda": null,
+      "minutes": "minutes/20260127_議事録_SmartHR.md",
+      "transcript": null,
+      "notes": "第4回: コンプラ観点の是正計画更新"
+    },
+    {
+      "meeting_id": "SM-2026-02-03",
+      "material_type": "board_minutes_smarthr",
+      "date": "2026-02-03",
+      "agenda": null,
+      "minutes": "minutes/20260203_議事録_SmartHR.md",
+      "transcript": null,
+      "notes": "第5回: 売上原資・採用単価の改善提案"
+    },
+    {
+      "meeting_id": "SM-2026-02-10",
+      "material_type": "board_minutes_smarthr",
+      "date": "2026-02-10",
+      "agenda": null,
+      "minutes": "minutes/20260210_議事録_SmartHR.md",
+      "transcript": null,
+      "notes": "第6回: 資金繰りと契約改定の議論"
+    },
+    {
+      "meeting_id": "SM-2026-02-17",
+      "material_type": "board_minutes_smarthr",
+      "date": "2026-02-17",
+      "agenda": null,
+      "minutes": "minutes/20260217_議事録_SmartHR.md",
+      "transcript": null,
+      "notes": "第7回: 配分優先順位とSLA改善"
+    },
+    {
+      "meeting_id": "SM-2026-02-22",
+      "material_type": "board_minutes_smarthr",
+      "date": "2026-02-22",
+      "agenda": null,
+      "minutes": "minutes/20260222_議事録_SmartHR.md",
+      "transcript": null,
+      "notes": "第8回: 3カ月フォローアップ方針確定"
+    },
+    {
+      "meeting_id": "SM-2026-02-24",
+      "material_type": "board_transcript_partial",
+      "date": "2026-02-24",
+      "agenda": [
+        "agenda/20260224_board_meeting_prep_agenda.md",
+        "agenda/board-minutes-2026-02-draft.md"
+      ],
+      "minutes": null,
+      "transcript": "transcript/partial/20260224_議事録_SmartHR_30分.md",
+      "notes": "2026/2/24 1時間想定会議の30分録（先行監査サンプル）"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "document_id": "CF-2026-02",
+  "company": "SmartHR",
+  "document_type": "cash_flow_statement",
+  "period": {
+    "from": "2026-01-01",
+    "to": "2026-02-28"
+  },
+  "currency": "JPY",
+  "unit": "million",
+  "opening_cash": 6120,
+  "cfo_reconciliation": {
+    "net_income": 539,
+    "depreciation_and_amortization": 860,
+    "stock_compensation": 320,
+    "changes_in_working_capital": {
+      "accounts_receivable": -120,
+      "contract_liabilities": 140,
+      "payable_and_accruals": 90,
+      "prepaid_and_other": -70
+    },
+    "net_cfo_before_tax": 1139,
+    "income_tax_paid": -40,
+    "net_cash_from_operating_activities": 1099
+  },
+  "cash_flow_investing": {
+    "capital_expenditure": -460,
+    "software_and_platform_investment": -210,
+    "acquisition_and_capitalization": -95,
+    "net_cash_from_investing_activities": -450
+  },
+  "cash_flow_financing": {
+    "new_debt_draws": 400,
+    "debt_repayment": -80,
+    "lease_payments": -120,
+    "stock_compensation_tax_withholding": -50,
+    "dividend_paid": 0,
+    "net_cash_from_financing_activities": 150
+  },
+  "net_change_in_cash": 799,
+  "closing_cash": 6919,
+  "non_cash_adjustments": {
+    "deferred_revenue_change": 140,
+    "lease_revaluation_adjustment": -25
+  },
+  "free_cash_flow": 639,
+  "runway_commentary": {
+    "runway_months_basic": 6.2,
+    "runway_months_stress_10pct_revenue_drop": 4.1,
+    "runway_months_with_commitment": 9.0
+  },
+  "checks": {
+    "balance_reconciled": {
+      "status": true,
+      "comment": "期首現金 6120 + 純増 799 = 6919。営業CF/投資CF/財務CFの合計整合は取れており、BSの現金残高と一致。"
+    },
+    "quality_flags": [
+      "営業収益が増加している一方、AR回収が悪化しないか監視が必要",
+      "CFOに大口支払いの季節性があり、翌月は営業CFの変動リスクが残る"
+    ]
+  }
+}

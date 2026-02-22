@@ -1,0 +1,84 @@
+{
+  "document_id": "SALES-ECON-2026-Q1",
+  "company": "SmartHR",
+  "document_type": "customer_economic_metrics",
+  "period": "2026-Q1",
+  "currency": "JPY",
+  "unit": "million",
+  "definition": "営業・CSが参照するARR/NRR/churnの会議監査用ファイル。母集団定義を明示。",
+  "segment_metrics": [
+    {
+      "segment": "SMB",
+      "customers": 980,
+      "arr": 2650,
+      "nrr": 94.8,
+      "logo_churn_rate": 0.062,
+      "seat_churn_rate": 0.039,
+      "gross_additions": 190,
+      "gross_contraction": 72,
+      "active_users": 61000
+    },
+    {
+      "segment": "Mid-market",
+      "customers": 340,
+      "arr": 3900,
+      "nrr": 96.1,
+      "logo_churn_rate": 0.045,
+      "seat_churn_rate": 0.028,
+      "gross_additions": 72,
+      "gross_contraction": 35,
+      "active_users": 47000
+    },
+    {
+      "segment": "Enterprise",
+      "customers": 120,
+      "arr": 4100,
+      "nrr": 97.2,
+      "logo_churn_rate": 0.021,
+      "seat_churn_rate": 0.014,
+      "gross_additions": 18,
+      "gross_contraction": 12,
+      "active_users": 32000
+    }
+  ],
+  "derived_company_metrics": {
+    "arr_run_rate": 10650,
+    "nrr_arr": 95.9,
+    "arr_growth_mom": 0.041,
+    "logo_churn_weighted": 0.051,
+    "seat_churn_weighted": 0.031,
+    "concentration_risk_top20": 0.43
+  },
+  "churn_reasons_by_weight": [
+    {"reason": "価格上昇への反応", "share": 0.34},
+    {"reason": "オンボーディング難易度", "share": 0.27},
+    {"reason": "社内稟議遅延", "share": 0.21},
+    {"reason": "他社移行/統合作業", "share": 0.18}
+  ],
+  "price_experiments": [
+    {
+      "experiment_id": "PX-2306",
+      "name": "中堅向け初期導入割引 8%",
+      "target_segment": "Mid-market",
+      "period": "2026-01-01_to_2026-01-31",
+      "metric_before": {"arr": 280, "logo_churn": 0.046, "lead_to_close": 0.31},
+      "metric_after": {"arr": 295, "logo_churn": 0.062, "lead_to_close": 0.34},
+      "impact": "短期ARRは+5.4%だが、実験対象の3カ月内解約率は上昇。",
+      "decision": "条件付き継続（条件: Churn <= 4.5%）"
+    },
+    {
+      "experiment_id": "PX-2311",
+      "name": "年契約の前払ポイント制度",
+      "target_segment": "SMB",
+      "period": "2026-01-15_to_2026-02-15",
+      "metric_before": {"arr": 220, "logo_churn": 0.060},
+      "metric_after": {"arr": 236, "logo_churn": 0.059},
+      "impact": "ARR増 +7.2%、解約抑制は中立。",
+      "decision": "継続"
+    }
+  ],
+  "evidence_notes": {
+    "churn_definition": "チャーン率は対象期間でActive契約の解約企業を母集団とする。",
+    "nrr_definition": "期間中の継続・拡張・縮小を反映、解約は-100%として除外。"
+  }
+}

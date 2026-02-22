@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-02-22",
+  "frequency": "monthly",
+  "unit_timezone": "Asia/Tokyo",
+  "metrics": [
+    {
+      "id": "kpi_headcount_trend",
+      "name": "従業員数",
+      "definition": "有効従業員数（休職中を除く）。地域別に加重平均し、四半期末時点の月次集計値。",
+      "unit": "人",
+      "formula": "月末時点の在籍人数合計から休職中を除外",
+      "source": "人事システム",
+      "last_updated": "2026-01-31",
+      "values": [
+        {"period": "2025-10", "value": 1200},
+        {"period": "2025-11", "value": 1215},
+        {"period": "2025-12", "value": 1220},
+        {"period": "2026-01", "value": 1212}
+      ]
+    },
+    {
+      "id": "kpi_revenue",
+      "name": "経常収益",
+      "definition": "国内・海外合計の経常収益。通貨は同一換算後、非GAAPの会計方針を除外。",
+      "unit": "百万円",
+      "formula": "総収益 - 一時的除外損益",
+      "source": "経理システム",
+      "last_updated": "2026-01-31",
+      "values": [
+        {"period": "2025-10", "value": 1580},
+        {"period": "2025-11", "value": 1610},
+        {"period": "2025-12", "value": 1605},
+        {"period": "2026-01", "value": 1640}
+      ]
+    },
+    {
+      "id": "kpi_attrition_rate",
+      "name": "年間推定離職率",
+      "definition": "任意期間の離職者数 ÷ 任意期間の平均従業員数（前月末＋当月末）/2。採用未採用者を母集団に含めない。",
+      "unit": "%",
+      "formula": "(離職者数 / 平均従業員数) * 100",
+      "source": "人事分析基盤",
+      "last_updated": "2026-01-31",
+      "values": [
+        {"period": "2025-10", "value": 5.8},
+        {"period": "2025-11", "value": 6.1},
+        {"period": "2025-12", "value": 6.4},
+        {"period": "2026-01", "value": 6.8}
+      ]
+    },
+    {
+      "id": "kpi_arr",
+      "name": "ARR（四半期推定）",
+      "definition": "月間における年間経常収益相当額を年換算した値。営業日ベースで集計し、M&A由来の一時的要素は除外。",
+      "unit": "百万円",
+      "formula": "四半期末時点の月次会計収益（当月ベース）を12か月換算。対象は既存契約更新分を除く。",
+      "source": "会計システム（営業レポーティング）",
+      "last_updated": "2026-01-31",
+      "values": [
+        {"period": "2025-10", "value": 10320},
+        {"period": "2025-11", "value": 10480},
+        {"period": "2025-12", "value": 10590},
+        {"period": "2026-01", "value": 10650}
+      ]
+    },
+    {
+      "id": "kpi_nrr",
+      "name": "NRR（ネット収益リテンション）",
+      "definition": "各月の既存顧客収益変動（拡張・縮小）を基準としたネット収益率。解約は-100%で反映。",
+      "unit": "%",
+      "formula": "(期首MRR + 拡張 - 縮小 - 失注)/期首MRR*100",
+      "source": "営業/CS分析基盤",
+      "last_updated": "2026-01-31",
+      "values": [
+        {"period": "2025-10", "value": 95.4},
+        {"period": "2025-11", "value": 95.7},
+        {"period": "2025-12", "value": 95.9},
+        {"period": "2026-01", "value": 95.9}
+      ]
+    },
+    {
+      "id": "kpi_time_to_fill",
+      "name": "採用リードタイム",
+      "definition": "採用開始日〜採用確定日までの営業日数の中央値。定義は営業部門と開発部門で同一で算出。",
+      "unit": "営業日",
+      "formula": "(採用確定日 - 応募承認日).median",
+      "source": "採用管理システム",
+      "last_updated": "2026-01-31",
+      "values": [
+        {"period": "2025-10", "value": 42},
+        {"period": "2025-11", "value": 45},
+        {"period": "2025-12", "value": 48},
+        {"period": "2026-01", "value": 47}
+      ]
+    },
+    {
+      "id": "kpi_training_hours",
+      "name": "従業員あたり研修時間",
+      "definition": "月間の研修実施時間総数 ÷ 退職者を除く有効従業員数。研修未実施者は0時間として算出。",
+      "unit": "時間/人",
+      "formula": "研修時間合計 / 有効従業員数",
+      "source": "LMS（学習管理システム）",
+      "last_updated": "2026-01-31",
+      "values": [
+        {"period": "2025-10", "value": 6.2},
+        {"period": "2025-11", "value": 5.8},
+        {"period": "2025-12", "value": 5.2},
+        {"period": "2026-01", "value": 4.9}
+      ]
+    },
+    {
+      "id": "kpi_nps",
+      "name": "顧客満足度（NPS）",
+      "definition": "最新四半期を対象にした顧客アンケート。未回答は除外。",
+      "unit": "ポイント",
+      "formula": "標準NPS計算式（Promoters％ - Detractors％）",
+      "source": "CS基盤",
+      "last_updated": "2026-01-31",
+      "values": [
+        {"period": "2025-10", "value": 27},
+        {"period": "2025-11", "value": 29},
+        {"period": "2025-12", "value": 31},
+        {"period": "2026-01", "value": 30}
+      ]
+    }
+  ]
+}

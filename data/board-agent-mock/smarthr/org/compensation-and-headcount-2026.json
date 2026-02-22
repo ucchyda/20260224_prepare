@@ -1,0 +1,37 @@
+{
+  "document_id": "HR-HC-2026-02",
+  "company": "SmartHR",
+  "document_type": "compensation_and_headcount_snapshot",
+  "snapshot_as_of": "2026-02-22",
+  "currency": "JPY",
+  "unit": "person",
+  "definition": "人員、採用、離職、配置に関する社内会議監査用データ。",
+  "population_definition": {
+    "headcount": "本採用・正社員・派遣は除外（別途管理）",
+    "attrition_denominator": "対象期間内の月末有効社員数の平均"
+  },
+  "groups": [
+    {"team": "エンジニアリング", "target": 182, "actual": 180, "planned_hires_30d": 6, "attrition_rate": 0.071, "vacancy_rate": 0.012, "notes": "夜間監視要員が弱い。"},
+    {"team": "営業", "target": 130, "actual": 130, "planned_hires_30d": 4, "attrition_rate": 0.058, "vacancy_rate": 0.022, "notes": "解約予兆の顧客対応で残業上振れ。"},
+    {"team": "CS", "target": 95, "actual": 98, "planned_hires_30d": 3, "attrition_rate": 0.087, "vacancy_rate": 0.018, "notes": "未充足分を一次受けで吸収。"},
+    {"team": "人事・採用", "target": 75, "actual": 74, "planned_hires_30d": 2, "attrition_rate": 0.066, "vacancy_rate": 0.014, "notes": "異動コスト増。"},
+    {"team": "法務・ガバナンス", "target": 32, "actual": 32, "planned_hires_30d": 1, "attrition_rate": 0.031, "vacancy_rate": 0.000, "notes": "監査案件の内製ノウハウは限定。"}
+  ],
+  "company_total": {
+    "target": 545,
+    "actual": 547,
+    "planned_hires": 16,
+    "attrition_count_last_30d": 32,
+    "attrition_rate_30d": 0.054,
+    "new_hires_last_30d": 14
+  },
+  "headcount_pressure_events": [
+    {"event": "監査再現対応", "required_overtime_hours": 310, "owner": "CISO", "priority": "高"},
+    {"event": "価格実験運用", "required_overtime_hours": 180, "owner": "CPO", "priority": "中"},
+    {"event": "給与計算移行", "required_overtime_hours": 220, "owner": "CTO", "priority": "中"}
+  ],
+  "quality_alerts": [
+    "部署間で採用・離職母集団定義を揃える必要あり。",
+    "監査向け母集団は契約形態別（正社員/準社員/派遣）を統一して再集計。"
+  ]
+}

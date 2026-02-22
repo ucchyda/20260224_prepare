@@ -1,0 +1,67 @@
+{
+  "document_id": "ROADMAP-2026-Q1",
+  "company": "SmartHR",
+  "document_type": "product_roadmap",
+  "period": "2026-Q1",
+  "definition": "議論品質向上のため、仕様前提と監査要件を紐づけた2.0版ロングテール。",
+  "initiatives": [
+    {
+      "initiative_id": "AIEXPL-01",
+      "theme": "AI推薦の説明可能性",
+      "owner": "CTO",
+      "status": "進行中",
+      "plan_q1": "推薦理由タグ + 反事実説明UI + 監査ログ紐付け",
+      "target_milestone": "2026-02-28",
+      "definition_owner": "CTO",
+      "acceptance_criteria": ["営業が30秒以内に理由説明できる", "説明不可項目はアラート表示"],
+      "governance_requirements": "全勧告に理由ID表示、誤推薦率モニタ"
+    },
+    {
+      "initiative_id": "PAYROLL-2",
+      "theme": "給与計算基盤移行",
+      "owner": "CTO",
+      "status": "設計レビュー",
+      "plan_q1": "レガシー連携の監査観点を残した移行フェーズ化",
+      "target_milestone": "2026-03-31",
+      "acceptance_criteria": ["API障害で復旧時間が15%短縮", "監査再現手順書作成"],
+      "governance_requirements": "個別同意IDと保存経路を監査証跡化"
+    },
+    {
+      "initiative_id": "CONSENT-UX",
+      "theme": "同意取得体験改善",
+      "owner": "CPO",
+      "status": "条件付き保留",
+      "plan_q1": "利用目的・保存期間を画面上で同時提示",
+      "target_milestone": "2026-02-20",
+      "acceptance_criteria": ["同意変更時に再同意率を提示", "監査上の差戻し率を毎週監視"],
+      "governance_requirements": "文言変更は法務/監査同席"
+    },
+    {
+      "initiative_id": "SLA-IMP",
+      "theme": "監査再現速度改善",
+      "owner": "CISO",
+      "status": "実装中",
+      "plan_q1": "再現検索インデックス再構成、夜間ジョブ優先度見直し",
+      "target_milestone": "2026-02-26",
+      "acceptance_criteria": ["監査再現p95=10分以内", "インシデント再現が30分以内で可視化"],
+      "governance_requirements": "監査記録改変禁止設定を技術的に固定"
+    }
+  ],
+  "blocking_dependencies": [
+    "提携先の監査同席条項更新",
+    "契約データ保存先の分離構成決定",
+    "部門別RACIの再合意"
+  ],
+  "risk_log": [
+    {
+      "risk": "説明可能性要件を満たしたまま精度を落とす",
+      "owner": "CTO",
+      "mitigation": "モデル精度と説明可能性を2軸で監査し、閾値を明示"
+    },
+    {
+      "risk": "給与移行の監査追跡が消える",
+      "owner": "CISO",
+      "mitigation": "監査追跡キーの必須化と定期リストア試験"
+    }
+  ]
+}

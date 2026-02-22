@@ -1,0 +1,52 @@
+{
+  "document_id": "COMPLY-AUDIT-2026-Q1",
+  "company": "SmartHR",
+  "document_type": "audit_findings",
+  "period": "2026-Q1",
+  "issued_by": "外部監査チーム",
+  "definition": "取締役会で監査観点の重み付けに使う内部監査結果。",
+  "findings": [
+    {
+      "finding_id": "AUDIT-01",
+      "area": "監査ログ保持",
+      "severity": "High",
+      "issue": "監査ログ検索で10分超の再現事例が2件以上確認された。",
+      "evidence": "OPS-SLA-2026-Q1#INC-2401",
+      "root_cause": "夜間再試行の優先順位競合",
+      "owner": "CISO",
+      "due": "2026-02-24",
+      "status": "未完了",
+      "required_action": "再現フローをワンクリック化し、監査同席のログを固定"
+    },
+    {
+      "finding_id": "AUDIT-02",
+      "area": "同意管理",
+      "severity": "Medium",
+      "issue": "同意文面変更時の保存履歴が未統一で、追跡に遅延がある。",
+      "evidence": "SALES-ECON-2026-Q1#evidence_notes",
+      "root_cause": "画面フローが旧仕様と混在",
+      "owner": "法務部長",
+      "due": "2026-02-28",
+      "status": "進行中",
+      "required_action": "同意仕様の版管理ルールを導入"
+    },
+    {
+      "finding_id": "AUDIT-03",
+      "area": "API障害運用",
+      "severity": "Medium",
+      "issue": "複数顧客で障害対応の初動エスカレーション時間が許容時間を超過。",
+      "evidence": "OPS-SLA-2026-Q1#week-04",
+      "root_cause": "オンコール体制の引き継ぎ漏れ",
+      "owner": "CTO",
+      "due": "2026-03-03",
+      "status": "未着手",
+      "required_action": "初動テンプレートを部門横断で統一"
+    }
+  ],
+  "overall_risk_level": "High",
+  "next_audit_focus": [
+    "監査再現性の継続改善",
+    "監査ログ改変防止",
+    "顧客向け説明可能性"
+  ]
+}

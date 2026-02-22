@@ -1,0 +1,37 @@
+{
+  "document_id": "OPS-SLA-2026-Q1",
+  "company": "SmartHR",
+  "document_type": "sla_and_incident_regression",
+  "period": "2026-01_to_2026-03",
+  "time_zone": "Asia/Tokyo",
+  "currency": "JPY",
+  "unit": "minute",
+  "sla_rules": {
+    "api_p95_response": 2.5,
+    "audit_log_retrieval_95pct": 10,
+    "batch_replay_p95": 6,
+    "incident_mitigation_sla_hour": 4,
+    "severity1_mitigation": 30
+  },
+  "weekly_metrics": [
+    {"week": "2026-W01", "api_p95": 2.1, "audit_retrieval_p95": 9.8, "batch_replay_p95": 5.2, "incident_count": 7, "severity1_count": 1, "regression_flag": false},
+    {"week": "2026-W02", "api_p95": 2.3, "audit_retrieval_p95": 10.5, "batch_replay_p95": 5.8, "incident_count": 8, "severity1_count": 0, "regression_flag": false},
+    {"week": "2026-W03", "api_p95": 2.4, "audit_retrieval_p95": 10.8, "batch_replay_p95": 6.3, "incident_count": 9, "severity1_count": 1, "regression_flag": true, "note": "監査再現件数が上振れ"},
+    {"week": "2026-W04", "api_p95": 2.8, "audit_retrieval_p95": 12.2, "batch_replay_p95": 7.1, "incident_count": 11, "severity1_count": 2, "regression_flag": true, "note": "夜間ジョブ再実行が遅い"},
+    {"week": "2026-W05", "api_p95": 2.6, "audit_retrieval_p95": 11.4, "batch_replay_p95": 7.0, "incident_count": 10, "severity1_count": 1, "regression_flag": true, "note": "営業先月契約変更が重なった"},
+    {"week": "2026-W06", "api_p95": 2.5, "audit_retrieval_p95": 10.1, "batch_replay_p95": 6.6, "incident_count": 9, "severity1_count": 1, "regression_flag": false}
+  ],
+  "critical_incidents": [
+    {"incident_id": "INC-2401", "impact": "監査ログの再現性", "start": "2026-02-07", "duration_minutes": 18, "mttr_minutes": 34, "status": "再発抑制中", "root_cause": "同期間にインデックス更新バッチが遅延"},
+    {"incident_id": "INC-2402", "impact": "ログ検索時間超過", "start": "2026-02-16", "duration_minutes": 11, "mttr_minutes": 28, "status": "一部再発", "root_cause": "夜間再試行の優先順位不足"}
+  ],
+  "night_batch": {
+    "jobs": [
+      {"job": "audit_replay_batch", "target_minutes": 5, "actual_minutes": 7.2, "drift": 2.2},
+      {"job": "billing_backfill", "target_minutes": 6, "actual_minutes": 6.1, "drift": 0.1},
+      {"job": "payroll_verification", "target_minutes": 4, "actual_minutes": 4.8, "drift": 0.8}
+    ],
+    "overall_risk": "medium",
+    "countermeasure": "夜間実行順序を再設計し、重要監査ジョブを優先"
+  }
+}

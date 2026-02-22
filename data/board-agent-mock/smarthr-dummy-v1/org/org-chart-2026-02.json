@@ -1,0 +1,62 @@
+{
+  "document_id": "ORG-2026-02",
+  "company": "SmartHR",
+  "snapshot_as_of": "2026-02-22",
+  "version": "snapshot-1",
+  "definition": "取締役会でRACI照会するための役員・部門マトリクス",
+  "board": [
+    {"name": "鈴木一郎", "title": "代表取締役社長（CEO）", "scope": "全社戦略・最終意思決定", "approval_authority": "yes"},
+    {"name": "高橋美咲", "title": "取締役CFO", "scope": "財務・予実管理・資金政策", "approval_authority": "yes"},
+    {"name": "山口健太", "title": "取締役CTO", "scope": "プロダクト基盤・監査基盤", "approval_authority": "yes"},
+    {"name": "白石由紀", "title": "取締役COO", "scope": "運用体制・生産性改善", "approval_authority": "yes"},
+    {"name": "伊藤真", "title": "取締役CPO", "scope": "採用ソリューション・AI機能", "approval_authority": "yes"}
+  ],
+  "departments": {
+    "sales": {
+      "director": "白石健",
+      "head_count": 130,
+      "manager_count": 12,
+      "responsible_for": ["営業KPI", "価格実験", "重要顧客レビュー"],
+      "escalation_owner": "COO"
+    },
+    "customer_success": {
+      "director": "尾崎美波",
+      "head_count": 95,
+      "manager_count": 8,
+      "responsible_for": ["NDR", "離職率分析", "導入定着支援"],
+      "escalation_owner": "COO"
+    },
+    "engineering": {
+      "director": "山口健太",
+      "head_count": 180,
+      "manager_count": 18,
+      "responsible_for": ["AI機能", "監査ログ", "セキュリティ", "SLA"],
+      "escalation_owner": "CTO"
+    },
+    "people_ops": {
+      "director": "人事本部長",
+      "head_count": 75,
+      "manager_count": 7,
+      "responsible_for": ["採用", "評価", "研修", "退職率"],
+      "escalation_owner": "CFO"
+    },
+    "legal_and_risk": {
+      "director": "法務部長",
+      "head_count": 32,
+      "manager_count": 4,
+      "responsible_for": ["契約レビュー", "監査対応", "ガバナンス"],
+      "escalation_owner": "CISO"
+    }
+  },
+  "decision_rules": {
+    "expense_over_500m": "取締役会承認",
+    "policy_change": "関連部門長＋法務レビュー",
+    "partner_contract": "CFO + 法務 + CISO",
+    "customer_complaint_escalation": "CS責任者→COO→CEO"
+  },
+  "approver_ladders": [
+    {"decision_area": "価格改定", "approvers": ["CFO", "営業責任者", "CEO"], "deadline_hours": 24},
+    {"decision_area": "監査是正", "approvers": ["CISO", "法務部長", "取締役会"], "deadline_hours": 12},
+    {"decision_area": "新規投資", "approvers": ["部門責任者", "CFO", "CEO"], "deadline_hours": 48}
+  ]
+}

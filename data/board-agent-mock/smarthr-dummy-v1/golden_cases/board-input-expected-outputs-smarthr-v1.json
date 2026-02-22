@@ -1,0 +1,189 @@
+{
+  "version": "golden-cases-smarthr-v1",
+  "company": "SmartHR",
+  "generated_at": "2026-02-22T21:30:00+09:00",
+  "cases": [
+    {
+      "id": "smarthr-prep-01",
+      "category": "pre_board",
+      "goal": "8回分SmartHR議事録を統合し、資金・監査・解約リスクに偏らない優先順位を作る",
+      "inputs": {
+        "meeting_minutes_ids": ["SM-2026-01-06", "SM-2026-01-13", "SM-2026-01-20", "SM-2026-01-27", "SM-2026-02-03", "SM-2026-02-10", "SM-2026-02-17", "SM-2026-02-22"],
+        "internal_refs": [
+          "BS-2026-02",
+          "IS-2026-02",
+          "TREAS-13W-2026-01",
+          "DEBT-2026-02",
+          "SALES-ECON-2026-Q1",
+          "OPS-SLA-2026-Q1",
+          "RACI-2026-Q1",
+          "COMPLY-AUDIT-2026-Q1",
+          "PARTNER-LEGAL-2026",
+          "ROADMAP-2026-Q1"
+        ],
+        "public_signal_ids": ["PUB-2025-11-01", "PUB-2026-01-28", "PUB-2026-02-10", "PUB-2026-02-20"]
+      },
+      "expected_outputs": {
+        "agenda_candidates_count_min": 7,
+        "top_topics": [
+          "資金ショートリスクが高まる週（W9〜W10）の対策先行化",
+          "監査再現時間の超過対策（監査ログ再設計）",
+          "提携契約の監査同席条項差分レビュー",
+          "AI採用提案の説明可能性検証",
+          "解約予兆モニタの母集団定義統一",
+          "価格実験の継続条件を財務効果と同時評価",
+          "給与計算移行のインシデントリスク管理"
+        ],
+        "open_items_detected_min": 2,
+        "missing_info_requests_min": 3,
+        "evidence_requirements_min": ["BS-2026-02", "TREAS-13W-2026-01", "COMPLY-AUDIT-2026-Q1", "CAPAL-2026-Q1"]
+      }
+    },
+    {
+      "id": "smarthr-prep-02",
+      "category": "pre_board",
+      "goal": "欠損データを優先検出して、会議前の追加質問へ変換",
+      "inputs": {
+        "meeting_minutes_ids": ["SM-2026-02-22"],
+        "internal_refs": ["FVA-2025Q4-2026Q1", "CAPAL-2026-Q1", "HR-HC-2026-02", "ORG-2026-02", "RACI-2026-Q1"],
+        "public_signal_ids": ["PUB-2026-02-20"]
+      },
+      "expected_outputs": {
+        "missing_info_requests": [
+          "提携契約の監査同席条項（対象文面）",
+          "監査再現時間に対する最新試験記録（顧客別）",
+          "AI推奨誤検知率の母集団定義（部署別）"
+        ],
+        "priority_flags": ["解約率悪化対策", "資金繰り短期リスク", "監査再現性"],
+        "open_items_min": 2
+      }
+    },
+    {
+      "id": "smarthr-meeting-01",
+      "category": "in_meeting",
+      "goal": "財務・資金繰りの断定を検知する",
+      "inputs": {
+        "transcript": [
+          "CFO: ARRは今期10%成長するので、監査ログ改善は次の四半期に回しても問題ない。",
+          "COO: 先週の13週キャッシュ見通しで資金繰りも安定しているため、借換は急がない。",
+          "CFO: NetDebt/EBITDAが2.8を割っているので、再融資の件はOKだ。",
+          "CPO: AI推薦の誤通知率は全体で8%を下回っているので、営業説明は十分。"
+        ],
+        "evidence_links": ["SALES-ECON-2026-Q1", "TREAS-13W-2026-01", "DEBT-2026-02", "OPS-SLA-2026-Q1"],
+        "kpi_context": ["arr", "net_debt_to_ebitda", "cash_runway", "sla"]
+      },
+      "expected_alerts": [
+        {
+          "id": "SMA-01",
+          "severity": "High",
+          "category": "causal_leap",
+          "statement": "ARR改善だけで監査ログ改善を後回しにする根拠がない。監査再現性は資金計画の実行可能性に直結。",
+          "evidence_id": "OPS-SLA-2026-Q1",
+          "evidence_source": "data/board-agent-mock/smarthr/operations/sla-incident-regression-smarthr-2026-q1.json",
+          "confidence": 0.91,
+          "confirmation_question": "監査再現時間の改善前提なしで、次月の予算配分はどう正当化しますか。"
+        },
+        {
+          "id": "SMA-02",
+          "severity": "High",
+          "category": "evidence_gap",
+          "statement": "13週キャッシュ見通しが高いとは断定しているが、W9-W11の現金不足シグナルが反証的に存在する。",
+          "evidence_id": "TREAS-13W-2026-01",
+          "evidence_source": "data/board-agent-mock/smarthr/finance/treasury-runway-13w-2026-01.json",
+          "confidence": 0.93,
+          "confirmation_question": "W9〜W11の資金ショートを防ぐアクション（期限・責任者）を提示できますか。"
+        },
+        {
+          "id": "SMA-03",
+          "severity": "Medium",
+          "category": "definition_mismatch",
+          "statement": "NetDebt/EBITDAの基底は借入実績・リファイ前提が混在している可能性。",
+          "evidence_id": "DEBT-2026-02",
+          "evidence_source": "data/board-agent-mock/smarthr/finance/debt-maturity-vs-covenants-smarthr-2026-02.json",
+          "confidence": 0.82,
+          "confirmation_question": "NetDebt/EBITDAの算定で、未確定借換枠は母集団から除外していますか。"
+        },
+        {
+          "id": "SMA-04",
+          "severity": "Medium",
+          "category": "owner_deadline_missing",
+          "statement": "誤通知率が十分とする判断に対し、改善責任者と期限が不明。",
+          "evidence_id": "RACI-2026-Q1",
+          "evidence_source": "data/board-agent-mock/smarthr/org/owner-deadline-matrix-2026-q1.json",
+          "confidence": 0.88,
+          "confirmation_question": "AI誤通知率の是正責任者と検証期限は誰がいつ担保しますか。"
+        }
+      ]
+    },
+    {
+      "id": "smarthr-meeting-02",
+      "category": "in_meeting",
+      "goal": "運用・監査の整合性崩れを検知し、High優先アラートを保証",
+      "inputs": {
+        "transcript": [
+          "CTO: 監査ログが遅い件は今月は1件だけで、全体としては問題ない。",
+          "法務: B社提携は内容が条件付き承認なので問題なし。",
+          "CISO: インシデントの再現時間は毎回10分以内に収めている。"
+        ],
+        "evidence_links": ["OPS-SLA-2026-Q1", "COMPLY-AUDIT-2026-Q1", "PARTNER-LEGAL-2026"],
+        "kpi_context": ["sla", "audit_findings", "partner_compliance"]
+      },
+      "expected_alerts": [
+        {
+          "id": "SMA-05",
+          "severity": "High",
+          "category": "evidence_gap",
+          "statement": "監査ログ遅延が1件以下という断定は、直近の重大インシデント（2件）と矛盾。",
+          "evidence_id": "COMPLY-AUDIT-2026-Q1;OPS-SLA-2026-Q1",
+          "evidence_source": "data/board-agent-mock/smarthr/compliance/compliance-audit-findings-smarthr-2026-q1.json",
+          "confidence": 0.95,
+          "confirmation_question": "重大インシデント2件について、再現時間の生データ（開始時刻、終了時刻）を提示できますか。"
+        },
+        {
+          "id": "SMA-06",
+          "severity": "Medium",
+          "category": "definition_mismatch",
+          "statement": "提携条件の監査同席権が再交渉中なのに、問題なしとは言い切れない。",
+          "evidence_id": "PARTNER-LEGAL-2026#B",
+          "evidence_source": "data/board-agent-mock/smarthr/compliance/partner-contract-legal-conditions-smarthr-2026.json",
+          "confidence": 0.87,
+          "confirmation_question": "再交渉中のA/B社で、監査同席条件の締結日と適用開始日を明示してください。"
+        }
+      ]
+    },
+    {
+      "id": "smarthr-noise-01",
+      "category": "robustness",
+      "goal": "曖昧表現・長文でも優先度が崩れないことを確認",
+      "inputs": {
+        "transcript": [
+          "えー、全体的には数字としては上向いてる感じはするんですけど、実際にはどこから来てるかっていうと、あの…顧客側の都合か、内部の都合かで見え方が分かれてます。",
+          "まあ営業と開発の指標が一致していないので、解約が減るとはまだ断言できないと思ってる、という話です。"
+        ],
+        "noise_profile": "high_ambiguity"
+      },
+      "expected_alerts": [
+        {
+          "id": "SMA-07",
+          "severity": "High",
+          "category": "evidence_gap",
+          "statement": "上向きの要因が曖昧で、母集団指定なしの主張として監査対象。",
+          "evidence_id": "SALES-ECON-2026-Q1",
+          "evidence_source": "data/board-agent-mock/smarthr/sales/customer-economic-metrics-2026-q1.json",
+          "confidence": 0.84,
+          "confirmation_question": "上向きを支えるセグメント別ARRと母集団（SMB/Mid/Enterprise）を明示できますか。"
+        },
+        {
+          "id": "SMA-08",
+          "severity": "Medium",
+          "category": "definition_mismatch",
+          "statement": "営業・開発の指標定義が一致しないまま『解約が減る』を言及。",
+          "evidence_id": "SALES-ECON-2026-Q1",
+          "evidence_source": "data/board-agent-mock/smarthr/sales/customer-economic-metrics-2026-q1.json",
+          "confidence": 0.77,
+          "confirmation_question": "営業と開発で用いる指標の定義（期間、母集団、重み付け）を統一していますか。"
+        }
+      ]
+    }
+  ]
+}

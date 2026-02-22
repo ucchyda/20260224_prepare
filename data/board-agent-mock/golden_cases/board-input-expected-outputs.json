@@ -1,0 +1,137 @@
+{
+  "version": "golden-cases-v1",
+  "cases": [
+    {
+      "id": "case-prep-01",
+      "category": "pre_board",
+      "goal": "次回アジェンダ生成と未解決項目検知",
+      "inputs": {
+        "meeting_minutes_ids": ["M-2026-01"],
+        "public_signal_ids": ["N-REG-2026-02-01", "N-MARKET-2026-02-01"],
+        "kpi_ids": ["kpi_headcount_trend", "kpi_attrition_rate", "kpi_time_to_fill", "kpi_training_hours"]
+      },
+      "expected_outputs": {
+        "agenda_candidates_count_min": 6,
+        "top_six_topics": [
+          "AI採用工数圧縮PoC結果レビュー",
+          "解約率悪化要因の部門別寄与度確定",
+          "採用KPI定義見直し",
+          "R&D配賦ルール変更",
+          "セキュリティ追加投資の再配分",
+          "次年度労務規制対応ロードマップ"
+        ],
+        "open_items_detected_min": 3,
+        "missing_info_requests_min": 3,
+        "evidence_requirements": [
+          "evidence_id: M-2026-01#UNRESOLVED-1",
+          "evidence_id: N-REG-2026-02-01",
+          "evidence_id: kpi_attrition_rate"
+        ]
+      }
+    },
+    {
+      "id": "case-prep-02",
+      "category": "pre_board",
+      "goal": "決議情報の優先度バイアス検証",
+      "inputs": {
+        "meeting_minutes_ids": ["M-2026-01", "M-2026-02-draft"],
+        "public_signal_ids": ["N-COMP-2026-02-01", "N-TECH-2026-02-02"]
+      },
+      "expected_outputs": {
+        "priority_ordering": ["High", "High", "Medium", "Medium", "Medium", "Low"],
+        "notes": "監査リスク（規制・監査）を含むテーマがTop2付近に出ることを期待"
+      }
+    },
+    {
+      "id": "case-in-meeting-01",
+      "category": "in_meeting",
+      "goal": "論理破綻のHigh/Mediumアラート検知",
+      "inputs": {
+        "transcript": [
+          "COO: 今期は採用工数を12%減らすが、10月の実績に基づけば問題はなさそうです。",
+          "CFO: 解約率は下がっているから、追加の監査は不要です。"
+        ],
+        "evidence_links": ["kpi_series", "M-2026-01", "PR-2026-02-A:v1.1"],
+        "kpi_context": ["kpi_time_to_fill", "kpi_attrition_rate"]
+      },
+      "expected_alerts": [
+        {
+          "id": "AL-01",
+          "severity": "High",
+          "category": "causal_leap",
+          "statement": "過去10月実績のみで今期12%減を断定している。",
+          "evidence_id": "kpi_time_to_fill",
+          "evidence_source": "data/board-agent-mock/kpi/kpi-series.json",
+          "confidence": 0.91,
+          "impact_score": 0.9,
+          "question": "時点（2026/2/1時点）でこの施策のベースライン比較対象と有意性はどう定義していますか？"
+        },
+        {
+          "id": "AL-02",
+          "severity": "High",
+          "category": "evidence_gap",
+          "statement": "解約率低下と監査結果の因果関係が未提示。",
+          "evidence_id": "kpi_attrition_rate",
+          "evidence_source": "data/board-agent-mock/kpi/kpi-series.json",
+          "confidence": 0.83,
+          "impact_score": 0.86,
+          "question": "解約率の観測母集団（製品別/契約月齢）を提示できますか？"
+        },
+        {
+          "id": "AL-03",
+          "severity": "Medium",
+          "category": "owner_deadline_missing",
+          "statement": "提案に実行責任者と期限の明記がない。",
+          "evidence_id": "M-2026-02-draft#AGENDASHIFT",
+          "evidence_source": "data/board-agent-mock/meetings/board-minutes-2026-02-draft.md",
+          "confidence": 0.97,
+          "impact_score": 0.85,
+          "question": "この改善提案の決裁責任者と実装期限は誰がいつまでに確定しますか？"
+        },
+        {
+          "id": "AL-04",
+          "severity": "Medium",
+          "category": "definition_mismatch",
+          "statement": "採用コスト圧縮率と離職率改善率を異なる母集団で比較している可能性。",
+          "evidence_id": "kpi_time_to_fill;kpi_attrition_rate",
+          "evidence_source": "data/board-agent-mock/kpi/kpi-series.json",
+          "confidence": 0.75,
+          "impact_score": 0.82,
+          "question": "採用数、離職率、研修時間の定義が同一期間・同一対象で揃っていますか？"
+        }
+      ]
+    },
+    {
+      "id": "case-noise-01",
+      "category": "robustness",
+      "goal": "長文・曖昧表現が混ざっても優先順位が崩れないことを確認",
+      "inputs": {
+        "transcript": [
+          "えっと、要するに数字上は上向いてる感じはあるけど、どこまで確からしいかはちょっとやや微妙って、えっと、なんていうか。",
+          "それから、営業側と開発側の指標は別で見てるから、解約率はまだ比較できないはずです。"
+        ],
+        "noise_profile": "high_ambiguity"
+      },
+      "expected_alerts": [
+        {
+          "id": "AL-05",
+          "severity": "High",
+          "category": "definition_mismatch",
+          "evidence_id": "kpi_nps;kpi_attrition_rate",
+          "evidence_source": "data/board-agent-mock/kpi/kpi-series.json",
+          "impact_score": 0.84,
+          "question": "営業側と開発側で利用している母集団定義を統一してください。"
+        },
+        {
+          "id": "AL-06",
+          "severity": "Medium",
+          "category": "evidence_gap",
+          "evidence_id": "kpi_headcount_trend",
+          "evidence_source": "data/board-agent-mock/kpi/kpi-series.json",
+          "impact_score": 0.79,
+          "question": "『上向き』と主張された根拠データの期間・指標を示してください。"
+        }
+      ]
+    }
+  ]
+}

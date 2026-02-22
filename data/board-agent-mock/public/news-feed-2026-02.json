@@ -1,0 +1,46 @@
+[
+  {
+    "id": "N-REG-2026-02-01",
+    "type": "regulation",
+    "title": "労働時間管理関連制度改正のガイドライン更新",
+    "source": "労務ニュースアナウンス（公開）",
+    "published_at": "2026-02-03",
+    "summary": "時間外労働の報告様式に関する監査観点が厳格化。監査での記録保存期限の再確認が必須に。",
+    "impact": "高",
+    "boards_impact": "取締役会で、労務監査体制と運用ルールの実効性を再確認する必要がある。",
+    "evidence_ref": "ref://government/labor-guideline-2026-02"
+  },
+  {
+    "id": "N-MARKET-2026-02-01",
+    "type": "market",
+    "title": "主要IT人材の獲得コスト上昇が継続",
+    "source": "業界紙調査レポート",
+    "published_at": "2026-02-07",
+    "summary": "採用コストが前月比で12%増加。特に中堅技術職で採用難度上昇。",
+    "impact": "中",
+    "boards_impact": "採用施策の費用対効果を見直し、採用KPIの母集団定義更新が必要。",
+    "evidence_ref": "ref://industry/market-labor-cost-q1-2026"
+  },
+  {
+    "id": "N-COMP-2026-02-01",
+    "type": "competitor",
+    "title": "競合Bが人事業務効率化パッケージを中小企業向けに拡張",
+    "source": "IR発表",
+    "published_at": "2026-02-11",
+    "summary": "競合Bが低価格帯プランで解約率低下施策を打ち出し、採用関連広告比率を増加。",
+    "impact": "中",
+    "boards_impact": "価格・機能比較の前提を更新し、解約率悪化要因分析で比較軸を追加する必要。",
+    "evidence_ref": "ref://press/comp-b-q1-release"
+  },
+  {
+    "id": "N-TECH-2026-02-02",
+    "type": "technology",
+    "title": "会議録要約AIの説明責任要件に関する議論",
+    "source": "技術ガイドコミュニティ発表",
+    "published_at": "2026-02-15",
+    "summary": "生成AIを使った会議録要約では、監査トレース要件の明示が企業評価の論点に。",
+    "impact": "低",
+    "boards_impact": "会議中監査エージェントの証拠管理方針を明文化する価値が高い。",
+    "evidence_ref": "ref://tech/meeting-ai-governance-2026"
+  }
+]

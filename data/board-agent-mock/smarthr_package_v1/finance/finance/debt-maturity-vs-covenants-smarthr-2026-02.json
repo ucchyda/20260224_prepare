@@ -1,0 +1,85 @@
+{
+  "document_id": "DEBT-2026-02",
+  "company": "SmartHR",
+  "document_type": "debt_maturity_and_covenants",
+  "as_of": "2026-02-22",
+  "currency": "JPY",
+  "unit": "million",
+  "definition": "債務満期・借入条件・コベナンツの整合を取締役会監査用に集約。再計測シナリオを含む。",
+  "debt_portfolio": [
+    {
+      "facility_id": "TL-A-01",
+      "facility_name": "短期運転資金枠（銀A）",
+      "instrument_type": "シンジケート・タームローン",
+      "balance": 1500,
+      "interest_type": "変動（TIBOR参考）",
+      "spread_bps": 215,
+      "maturity": "2026-08-15",
+      "repayment_style": "bullet + quarterly interest",
+      "covenant_tests": ["DSCR >= 1.25", "Current_ratio >= 1.2"],
+      "maturity_risk": "高"
+    },
+    {
+      "facility_id": "CONV-03",
+      "facility_name": "転換社債（国内外）",
+      "instrument_type": "コンバーチブルノート",
+      "balance": 1200,
+      "interest_type": "固定",
+      "coupon_pct": 2.6,
+      "maturity": "2028-12-31",
+      "conversion_ratio": "株主総会承認後可",
+      "covenant_tests": ["NetDebtToEBITDA <= 2.8x", "Shareholder_approval_guard"],
+      "maturity_risk": "低"
+    },
+    {
+      "facility_id": "LEASE-HP-22",
+      "facility_name": "データセンタ設備リース",
+      "instrument_type": "ファイナンスリース",
+      "balance": 1010,
+      "interest_type": "固定",
+      "coupon_pct": 1.9,
+      "maturity": "2027-05-31",
+      "covenant_tests": ["DSCR >= 1.20"],
+      "maturity_risk": "中"
+    }
+  ],
+  "covenants": {
+    "gross_leverage_max": 2.8,
+    "net_debt_to_ebitda_max": 3.2,
+    "dscr_min": 1.20,
+    "interest_coverage_min": 4.5,
+    "current_ratio_min": 1.10,
+    "shareholder_restriction": "高額支出は取締役会承認（設備/新規投資）"
+  },
+  "calculation": {
+    "net_debt": 7700,
+    "ebitda_run": 2600,
+    "net_debt_to_ebitda": 2.96,
+    "gross_leverage": 3.4,
+    "dscr_current": 1.32,
+    "dscr_stress_10pct": 1.08,
+    "current_ratio": 1.15
+  },
+  "headroom_to_breach": {
+    "net_debt_to_ebitda_margin": -0.24,
+    "gross_leverage_margin": -0.6,
+    "dscr_margin_bps": 120,
+    "current_ratio_margin_bps": 50,
+    "status": "breach_likely_in_stress"
+  },
+  "refinancing_plan": {
+    "tl_a_refi_window": "2026-06 to 2026-07",
+    "scenario": "3件同時入札でspread -20bpsを想定",
+    "target_maturity_extension": "+24m",
+    "fallback": "新規短期枠のコミット更新を優先し、8月の集中を平準化"
+  },
+  "recommendations": [
+    "8月までの集中返済を抑えるためリファイ条件の先行提示",
+    "Net Debt/EBITDAの算定母集団を調達条件の変更前提で再定義",
+    "DSCRストレス試算を監査委員会向けに別紙提示"
+  ],
+  "evidence_links": {
+    "board_context": "meetings/board-minutes-2026-02-draft.md",
+    "audit_context": "compliance/compliance-audit-findings-smarthr-2026-q1.json"
+  }
+}

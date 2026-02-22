@@ -1,0 +1,179 @@
+{
+  "generated_at": "2026-02-22T09:00:00+09:00",
+  "generated_by": "mock-data-seed-v2",
+  "meetings": [
+    {
+      "id": "M-2026-01",
+      "title": "2026-01 Board Minutes",
+      "date": "2026-01-22",
+      "category": "board_summary",
+      "related_kpis": [
+        "kpi_headcount_trend",
+        "kpi_attrition_rate",
+        "kpi_time_to_fill",
+        "kpi_revenue"
+      ],
+      "public_references": ["N-REG-2026-02-01", "N-MARKET-2026-02-01"],
+      "internal_references": [
+        "FVA-2025Q4-2026Q1",
+        "SALES-ECON-2026-Q1",
+        "BS-2026-02"
+      ],
+      "language": "ja"
+    },
+    {
+      "id": "M-2026-02-draft",
+      "title": "2026-02 Board Draft Agenda",
+      "date": "2026-02-26",
+      "category": "board_draft",
+      "related_kpis": [
+        "kpi_headcount_trend",
+        "kpi_attrition_rate",
+        "kpi_training_hours",
+        "kpi_revenue",
+        "kpi_nps"
+      ],
+      "public_references": ["N-REG-2026-02-01", "N-MARKET-2026-02-02", "N-COMP-2026-02-01"],
+      "internal_references": [
+        "CF-2026-02",
+        "DEBT-2026-02",
+        "CAPAL-2026-Q1",
+        "RACI-2026-Q1"
+      ],
+      "language": "ja"
+    },
+    {
+      "id": "SM-2026-01-06",
+      "title": "2026-01-06 SmartHR取締役会",
+      "date": "2026-01-06",
+      "category": "board_minutes_smarthr",
+      "related_kpis": ["kpi_arr", "kpi_nrr", "kpi_headcount_trend", "kpi_attrition_rate"],
+      "public_references": ["PUB-2025-11-01", "PUB-2026-01-15"],
+      "internal_references": [
+        "ORG-2026-02",
+        "RACI-2026-Q1",
+        "COMPLY-AUDIT-2026-Q1"
+      ],
+      "language": "ja",
+      "source_path": "smarthr-2026-01-02/20260106_議事録_SmartHR.md"
+    },
+    {
+      "id": "SM-2026-01-13",
+      "title": "2026-01-13 SmartHR取締役会",
+      "date": "2026-01-13",
+      "category": "board_minutes_smarthr",
+      "related_kpis": ["kpi_arr", "kpi_nrr", "kpi_attrition_rate", "kpi_training_hours"],
+      "public_references": ["PUB-2026-01-28"],
+      "internal_references": [
+        "IS-2026-02",
+        "TREAS-13W-2026-01",
+        "RACI-2026-Q1",
+        "CAPAL-2026-Q1"
+      ],
+      "language": "ja",
+      "source_path": "smarthr-2026-01-02/20260113_議事録_SmartHR.md"
+    },
+    {
+      "id": "SM-2026-01-20",
+      "title": "2026-01-20 SmartHR取締役会",
+      "date": "2026-01-20",
+      "category": "board_minutes_smarthr",
+      "related_kpis": ["kpi_arr", "kpi_nrr", "kpi_training_hours", "kpi_attrition_rate"],
+      "public_references": ["PUB-2026-01-28", "PUB-2026-02-10"],
+      "internal_references": [
+        "IS-2026-02",
+        "ROADMAP-2026-Q1",
+        "COMPLY-AUDIT-2026-Q1",
+        "DEBT-2026-02"
+      ],
+      "language": "ja",
+      "source_path": "smarthr-2026-01-02/20260120_議事録_SmartHR.md"
+    },
+    {
+      "id": "SM-2026-01-27",
+      "title": "2026-01-27 SmartHR取締役会",
+      "date": "2026-01-27",
+      "category": "board_minutes_smarthr",
+      "related_kpis": ["kpi_arr", "kpi_nrr", "kpi_attrition_rate", "kpi_revenue"],
+      "public_references": ["PUB-2026-02-10", "PUB-2026-02-20"],
+      "internal_references": [
+        "OPS-SLA-2026-Q1",
+        "COMPLY-AUDIT-2026-Q1",
+        "RACI-2026-Q1"
+      ],
+      "language": "ja",
+      "source_path": "smarthr-2026-01-02/20260127_議事録_SmartHR.md"
+    },
+    {
+      "id": "SM-2026-02-03",
+      "title": "2026-02-03 SmartHR取締役会",
+      "date": "2026-02-03",
+      "category": "board_minutes_smarthr",
+      "related_kpis": ["kpi_arr", "kpi_nrr", "kpi_revenue", "kpi_training_hours"],
+      "public_references": ["PUB-2026-02-20"],
+      "internal_references": [
+        "BS-2026-02",
+        "CF-2026-02",
+        "SALES-ECON-2026-Q1",
+        "RACI-2026-Q1"
+      ],
+      "language": "ja",
+      "source_path": "smarthr-2026-01-02/20260203_議事録_SmartHR.md"
+    },
+    {
+      "id": "SM-2026-02-10",
+      "title": "2026-02-10 SmartHR取締役会",
+      "date": "2026-02-10",
+      "category": "board_minutes_smarthr",
+      "related_kpis": ["kpi_arr", "kpi_nrr", "kpi_training_hours", "kpi_attrition_rate"],
+      "public_references": ["PUB-2026-02-10", "PUB-2026-02-20"],
+      "internal_references": [
+        "ROADMAP-2026-Q1",
+        "PARTNER-LEGAL-2026",
+        "COMPLY-AUDIT-2026-Q1"
+      ],
+      "language": "ja",
+      "source_path": "smarthr-2026-01-02/20260210_議事録_SmartHR.md"
+    },
+    {
+      "id": "SM-2026-02-17",
+      "title": "2026-02-17 SmartHR取締役会",
+      "date": "2026-02-17",
+      "category": "board_minutes_smarthr",
+      "related_kpis": ["kpi_arr", "kpi_nrr", "kpi_training_hours"],
+      "public_references": ["PUB-2026-02-20"],
+      "internal_references": [
+        "DEBT-2026-02",
+        "RACI-2026-Q1",
+        "CAPAL-2026-Q1",
+        "HR-HC-2026-02"
+      ],
+      "language": "ja",
+      "source_path": "smarthr-2026-01-02/20260217_議事録_SmartHR.md"
+    },
+    {
+      "id": "SM-2026-02-22",
+      "title": "2026-02-22 SmartHR取締役会",
+      "date": "2026-02-22",
+      "category": "board_minutes_smarthr",
+      "related_kpis": ["kpi_arr", "kpi_nrr", "kpi_attrition_rate", "kpi_revenue"],
+      "public_references": ["PUB-2026-02-10", "PUB-2026-02-20"],
+      "internal_references": [
+        "TREAS-13W-2026-01",
+        "OPS-SLA-2026-Q1",
+        "COMPLY-AUDIT-2026-Q1",
+        "RACI-2026-Q1"
+      ],
+      "language": "ja",
+      "source_path": "smarthr-2026-01-02/20260222_議事録_SmartHR.md"
+    }
+  ],
+  "data_quality_flags": {
+    "missing_kpi_coverage": [
+      "kpi_customer_success_score",
+      "kpi_cash_runway_exact",
+      "kpi_compliance_incident_repeat_rate"
+    ],
+    "open_items_reference": "See SmartHR Board files for 8 agenda cycles and open_items in owner-deadline matrix"
+  }
+}

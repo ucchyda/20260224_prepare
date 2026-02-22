@@ -1,0 +1,59 @@
+{
+  "document_id": "PUB-NEWS-SMARTHR",
+  "company": "SmartHR",
+  "document_type": "public_signal_newsfeed",
+  "source_scope": "公開情報（Web/プレスリリース/業界報道）",
+  "definition": "取締役会監査の前提資料。SmartHR由来の公開情報を簡易再構成。",
+  "items": [
+    {
+      "id": "PUB-2025-11-01",
+      "published_at": "2025-11-01",
+      "type": "regulation",
+      "title": "労務・個人情報取扱いガイドライン更新（注目条項）",
+      "summary": "保存期間と利用目的の明示粒度が引き上げ、同意変更時の再取得が実務要件化。",
+      "impact": "High",
+      "board_impact": "同意フロー改修の遅延は監査上の赤信号になる。",
+      "tags": ["company=scenario:smarthr", "規制", "労務", "コンプラ"]
+    },
+    {
+      "id": "PUB-2026-01-15",
+      "published_at": "2026-01-15",
+      "type": "product",
+      "title": "中堅・中小向け機能拡張の告知（UI/監査対応）",
+      "summary": "中堅顧客の採用/勤怠連携画面を簡易化。監査トレース要件は未記載。",
+      "impact": "Medium",
+      "board_impact": "同意説明不足を営業現場が説明できるかが質疑ポイント。",
+      "tags": ["company=scenario:smarthr", "製品", "採用", "UI"]
+    },
+    {
+      "id": "PUB-2026-01-28",
+      "published_at": "2026-01-28",
+      "type": "partner",
+      "title": "提携先との共同ソリューション拡張",
+      "summary": "LLM連携や勤怠基盤との統合提携を拡大。保存先要件の開示は限定的。",
+      "impact": "Medium",
+      "board_impact": "提携契約レビューなしでは意思決定不能。",
+      "tags": ["company=scenario:smarthr", "提携", "データガバナンス"]
+    },
+    {
+      "id": "PUB-2026-02-10",
+      "published_at": "2026-02-10",
+      "type": "market",
+      "title": "同業他社の監査機能強化の加速",
+      "summary": "競合が監査同席機能・監査ログ保全を広告主軸で打ち出す。",
+      "impact": "Medium",
+      "board_impact": "監査要件の遅れが失注理由として表に出る可能性。",
+      "tags": ["company=scenario:smarthr", "競合", "監査"]
+    },
+    {
+      "id": "PUB-2026-02-20",
+      "published_at": "2026-02-20",
+      "type": "capital",
+      "title": "中小企業デジタル投資の資金流動性報道",
+      "summary": "景況の影響で導入初期投資を抑える傾向が観測。",
+      "impact": "Low",
+      "board_impact": "値引き施策は短期ARR支援になるが価格劣化に注意。",
+      "tags": ["company=scenario:smarthr", "市場", "価格"]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "document_id": "BS-2026-02",
+  "company": "SmartHR",
+  "document_type": "balance_sheet",
+  "as_of": "2026-02-28",
+  "currency": "JPY",
+  "unit": "million",
+  "scope": "consolidated",
+  "category": "監査前レビュー用",
+  "definition": "2026年2月末の連結B/S。監査実務上の分類に合わせ、流動負債・有利子負債は償還期限を優先して再分類している。",
+  "assets": {
+    "current_assets": {
+      "cash_and_deposits": 6919,
+      "marketable_securities": 420,
+      "accounts_receivable_net": 1950,
+      "contract_liabilities_current": 1280,
+      "prepaid_expenses": 310,
+      "other_current_assets": 260,
+      "total_current_assets": 11039
+    },
+    "non_current_assets": {
+      "goodwill": 2450,
+      "intangible_assets": 900,
+      "property_plant_and_equipment": 680,
+      "deferred_tax_assets": 170,
+      "other_non_current_assets": 0,
+      "total_non_current_assets": 4200
+    },
+    "total_assets": 15239
+  },
+  "liabilities": {
+    "current_liabilities": {
+      "accounts_payable": 930,
+      "payroll_related_liabilities": 1140,
+      "short_term_borrowings": 1020,
+      "accrued_revenue_liabilities": 1280,
+      "taxes_payable": 320,
+      "other_current_liabilities": 360,
+      "total_current_liabilities": 4950
+    },
+    "non_current_liabilities": {
+      "long_term_debt": 5300,
+      "convertible_bonds": 1200,
+      "lease_liabilities_non_current": 1010,
+      "deferred_tax_liabilities": 180,
+      "other_non_current_liabilities": 40,
+      "total_non_current_liabilities": 7730
+    },
+    "total_liabilities": 12720
+  },
+  "equity": {
+    "common_stock": 500,
+    "capital_surplus": 950,
+    "retained_earnings": 1369,
+    "other_comprehensive_income": -300,
+    "treasury_stock": 0,
+    "total_equity": 2519
+  },
+  "checks": {
+    "accounting_identity": {
+      "lhs": 15239,
+      "rhs": 15239,
+      "status": "ok",
+      "comment": "資産合計と負債＋純資産合計は一致。資金調達前提は別表にて注記。"
+    },
+    "liquidity_metrics": {
+      "current_ratio": 2.23,
+      "quick_ratio": 1.90,
+      "net_debt_to_equity": 3.05
+    },
+    "notes": [
+      "短期支払債務の前受収益比率を高めるほど、当座資金の短期変動は増幅しやすい。",
+      "固定資産の評価額は税務上の加速償却を除外した会計上原価ベース。"
+    ]
+  }
+}

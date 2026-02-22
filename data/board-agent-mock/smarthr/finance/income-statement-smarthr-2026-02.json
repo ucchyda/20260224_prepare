@@ -1,0 +1,74 @@
+{
+  "document_id": "IS-2026-02",
+  "company": "SmartHR",
+  "document_type": "income_statement",
+  "period": {
+    "from": "2026-01-01",
+    "to": "2026-02-28"
+  },
+  "currency": "JPY",
+  "unit": "million",
+  "definition": "2026年1月〜2月（2か月）実績。会計方針は会計上原価を主軸、M&A会計は含めない。",
+  "revenue": {
+    "total_revenue": 11340,
+    "segments": {
+      "payroll_hr": 5020,
+      "talent_marketplace": 3380,
+      "it_service_bundle": 1760,
+      "bpo_hr_support": 1180
+    },
+    "other_income": 35
+  },
+  "cost_of_sales": {
+    "cloud_infra_and_hosting": 1420,
+    "partner_service_cost": 760,
+    "implementation_and_support_cost": 760,
+    "payroll_integration_cost": 160,
+    "other_cost_of_sales": 0,
+    "total_cost_of_sales": 3100
+  },
+  "gross_profit": 8240,
+  "gross_margin_pct": 72.65,
+  "operating_expenses": {
+    "research_and_development": 1680,
+    "sales_and_marketing": 2480,
+    "general_and_administrative": 1200,
+    "stock_compensation": 1080,
+    "total_operating_expenses": 6440
+  },
+  "ebitda": 1800,
+  "depreciation_and_amortization": 860,
+  "ebit": 940,
+  "other_non_operating_income": 45,
+  "other_non_operating_expenses": 85,
+  "financial_income": 10,
+  "financial_expenses": 255,
+  "pretax_income": 735,
+  "income_tax_expense": 196,
+  "net_income": 539,
+  "loss_carried_forward_end": 1140,
+  "non_gaap_kerf": {
+    "adj_ebitda": 2140,
+    "adj_net_income": 620,
+    "exclude_items": [
+      "one_off_migration_fee_adjustment",
+      "staffing_bonus_provision_adjustment"
+    ]
+  },
+  "kpi_links": {
+    "kpi_arr": "SALES-ECON-2026-Q1#metric-arr-run-rate",
+    "kpi_nrr": "SALES-ECON-2026-Q1#metric-nrr",
+    "kpi_training_hours": "未連携（社内KPI）"
+  },
+  "checks": {
+    "revenue_reconciliation": {
+      "status": "warn",
+      "comment": "粗利益率計算上、S&Mの減価費が一部広告費と重複計上される可能性。"
+    },
+    "margin_trend": {
+      "current_gross_margin_pct": 72.65,
+      "prev_month_margin_pct": 72.10,
+      "trend": "up"
+    }
+  }
+}
