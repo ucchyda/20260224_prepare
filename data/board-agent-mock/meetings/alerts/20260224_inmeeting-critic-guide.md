@@ -21,6 +21,7 @@ SmartHR想定 / 取締役会アシストAgent向け
   - 断定・推測がある発言には「証拠の有無」を最優先で確認する  
   - 重要論点は High を優先し、Medium も含めるが Teams 投稿数は抑制する  
   - 全アラートに **evidence_id / evidence_source / 確認質問** を必須付与  
+  - `source_scope`（`pre_agenda` / `internal` / `public`）を追加  
 
 ## 2. Teamsチャット投稿フォーマット
 
@@ -31,7 +32,8 @@ SmartHR想定 / 取締役会アシストAgent向け
 発言: 「...」
 理由: 何が論理的に不整合か（1〜2行）
 根拠: evidence_id=..., evidence_source=...
-確認質問: ...
+確認質問: ...?
+source_scope: pre_agenda / internal / public
 必要確認: owner / data_required / 次アクション期限
 ```
 

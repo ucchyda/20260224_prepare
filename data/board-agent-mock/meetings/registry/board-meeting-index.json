@@ -1,8 +1,18 @@
 {
-  "version": "smarthr-v1.2-meetings-index-2026-02-22",
+  "version": "smarthr-v1.2-meetings-index-2026-02-24",
   "scope": "SmartHR mock board meeting materials",
   "currency": "JPY",
-  "updated_at": "2026-02-22T12:00:00+09:00",
+  "updated_at": "2026-02-24T12:00:00+09:00",
+  "v2": {
+    "workflow_version": "v2.0",
+    "required_assets": [
+      "agenda_plus_facts_v2_*.md",
+      "agenda_plus_facts_v2_*.json",
+      "inmeeting_alerts_v2_*.json",
+      "論理飛躍_チャット投稿質問_v2.md"
+    ],
+    "index_key": "v2_assets"
+  },
   "paths": {
     "agenda_dir": "agenda",
     "minutes_dir": "minutes",
@@ -115,7 +125,16 @@
       ],
       "minutes": null,
       "transcript": "transcript/partial/20260224_議事録_SmartHR_30分.md",
-      "notes": "2026/2/24 1時間想定会議の30分録（先行監査サンプル）"
+      "notes": "2026/2/24 1時間想定会議の30分録（先行監査サンプル）",
+      "v2_assets": {
+        "workflow": "v2",
+        "agenda_plus_facts": {
+          "md": "agenda/agenda_plus_facts_v2_20260224.md",
+          "json": "agenda/agenda_plus_facts_v2_20260224.json"
+        },
+        "inmeeting_alerts": "alerts/inmeeting_alerts_v2_20260224.json",
+        "chat_questions": "transcript/論理飛躍監査_チャット質問/20260224_議事録_SmartHR_30分_論理飛躍_チャット投稿質問_v2.md"
+      }
     }
   ]
 }

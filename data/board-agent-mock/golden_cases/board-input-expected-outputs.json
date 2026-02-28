@@ -132,6 +132,85 @@
           "question": "『上向き』と主張された根拠データの期間・指標を示してください。"
         }
       ]
+    },
+    {
+      "id": "case-v2-prep-01",
+      "category": "pre_board",
+      "goal": "v2会議前エージェントの網羅性評価",
+      "inputs": {
+        "agent": "MeetingPrepOrchestratorAgentV2",
+        "meeting_scope": "smarthr",
+        "meeting_id": "SM-2026-02-22",
+        "target_minutes_candidates": [
+          "SM-2026-02-22",
+          "SM-2026-02-17",
+          "SM-2026-02-10"
+        ],
+        "evidence_sources": [
+          "meeting-minutes-meta",
+          "board-minutes-2026-02-draft",
+          "smarthr/finance",
+          "smarthr/public"
+        ]
+      },
+      "expected_outputs": {
+        "agenda_plus_facts_min": 7,
+        "open_items_min": 3,
+        "evidence_gaps_min": 2,
+        "required_fields": [
+          "item_id",
+          "agenda_title",
+          "required_facts",
+          "evidence_refs",
+          "owners",
+          "risk_level",
+          "evidence_id",
+          "evidence_source"
+        ]
+      }
+    },
+    {
+      "id": "case-v2-meeting-01",
+      "category": "in_meeting",
+      "goal": "v2会議中エージェントの論理飛躍・前提疑義検出",
+      "inputs": {
+        "agent": "InMeetingOrchestratorAgentV2",
+        "meeting_id": "SM-2026-02-24",
+        "transcript_segment": {
+          "line": 245,
+          "speaker": "CFO",
+          "text": "ARRが上向いているので採用を5割増加させます。監査ログは次に回して問題ないです。"
+        },
+        "urgency_profile": "LowLatency",
+        "agenda_plus_facts_path": "agenda/agenda_plus_facts_v2_20260224.json",
+        "fact_bundle_ref": [
+          "TREAS-13W-2026-01",
+          "OPS-SLA-2026-Q1",
+          "CAPAL-2026-Q1"
+        ]
+      },
+      "expected_alerts": [
+        {
+          "id": "V2A-01",
+          "severity": "High",
+          "issue_type": "logical_jump",
+          "statement": "採用拡大を資金繰り検証前提で断定",
+          "evidence_id": "TREAS-13W-2026-01",
+          "evidence_source": "data/board-agent-mock/smarthr/finance/treasury-runway-13w-2026-01.json",
+          "action": "post_if",
+          "question": "採用拡大分の資金繰り計画（期間・母集団・実行月）を示してください。"
+        },
+        {
+          "id": "V2A-02",
+          "severity": "High",
+          "issue_type": "premise_question",
+          "statement": "監査ログ先送りの前提定義が未提示",
+          "evidence_id": "OPS-SLA-2026-Q1",
+          "evidence_source": "data/board-agent-mock/smarthr/operations/sla-incident-regression-smarthr-2026-q1.json",
+          "action": "post_if",
+          "question": "監査ログ先送りの判断条件（例外、期限、再開条件）はどこまで確定していますか。"
+        }
+      ]
     }
   ]
 }

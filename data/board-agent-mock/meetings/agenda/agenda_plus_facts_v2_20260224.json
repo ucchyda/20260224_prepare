@@ -1,0 +1,178 @@
+{
+  "agent": "MeetingPrepOrchestratorAgentV2",
+  "version": "v2.0",
+  "meeting_id": "SM-2026-02-24",
+  "meeting_scope": "smarthr-board-meeting",
+  "latest_minutes_id": "SM-2026-02-22",
+  "target_minutes_candidates": [
+    "SM-2026-02-22",
+    "SM-2026-02-17",
+    "SM-2026-02-10",
+    "SM-2026-02-03"
+  ],
+  "evidence_sources": [
+    "data/board-agent-mock/meetings/board-minutes-meta.json",
+    "data/board-agent-mock/meetings/board-minutes-2026-02-draft.md",
+    "data/board-agent-mock/smarthr"
+  ],
+  "agenda_plus_facts": [
+    {
+      "item_id": "AF-01",
+      "agenda_title": "3か月フォロー対象施策の進捗検証",
+      "required_facts": ["OF-01", "OF-02"],
+      "evidence_refs": [
+        "TREAS-13W-2026-01",
+        "COMPLY-AUDIT-2026-Q1",
+        "RACI-2026-Q1"
+      ],
+      "owners": ["CFO", "CISO", "COO"],
+      "risk_level": "High",
+      "open_items": ["OF-01", "OF-02"]
+    },
+    {
+      "item_id": "AF-02",
+      "agenda_title": "監査再現時間ルールの運用確認",
+      "required_facts": ["OF-03"],
+      "evidence_refs": [
+        "OPS-SLA-2026-Q1",
+        "COMPLY-AUDIT-2026-Q1"
+      ],
+      "owners": ["CISO"],
+      "risk_level": "High",
+      "open_items": ["OF-03"]
+    },
+    {
+      "item_id": "AF-03",
+      "agenda_title": "提携契約監査同席条項の確定",
+      "required_facts": ["OF-04"],
+      "evidence_refs": [
+        "PARTNER-LEGAL-2026",
+        "COMPLY-AUDIT-2026-Q1",
+        "RACI-2026-Q1"
+      ],
+      "owners": ["法務部長", "総務部長"],
+      "risk_level": "High",
+      "open_items": ["OF-04"]
+    },
+    {
+      "item_id": "AF-04",
+      "agenda_title": "3月予算配分素案の最終化",
+      "required_facts": ["OF-05", "OF-06"],
+      "evidence_refs": [
+        "CAPAL-2026-Q1",
+        "CF-2026-02",
+        "DEBT-2026-02",
+        "BS-2026-02"
+      ],
+      "owners": ["CFO", "CPO"],
+      "risk_level": "Medium",
+      "open_items": ["OF-05"]
+    },
+    {
+      "item_id": "AF-05",
+      "agenda_title": "営業・CS施策の人員再配分評価",
+      "required_facts": ["OF-07"],
+      "evidence_refs": [
+        "HR-HC-2026-02",
+        "kpi_headcount_trend",
+        "kpi_attrition_rate"
+      ],
+      "owners": ["CHRO", "COO"],
+      "risk_level": "Medium",
+      "open_items": ["OF-07"]
+    },
+    {
+      "item_id": "AF-06",
+      "agenda_title": "価格実験の外部比較レビュー",
+      "required_facts": ["OF-08"],
+      "evidence_refs": [
+        "PUB-NEWS-SMARTHR",
+        "SALES-ECON-2026-Q1"
+      ],
+      "owners": ["営業部長"],
+      "risk_level": "Medium",
+      "open_items": ["OF-08"]
+    },
+    {
+      "item_id": "AF-07",
+      "agenda_title": "規制対応ロードマップ更新",
+      "required_facts": ["OF-09"],
+      "evidence_refs": [
+        "N-REG-2026-02-01",
+        "N-MARKET-2026-02-02"
+      ],
+      "owners": ["法務部長", "総務部長"],
+      "risk_level": "Low",
+      "open_items": ["OF-09"]
+    }
+  ],
+  "fact_bundle": [
+    {
+      "fact_id": "OF-01",
+      "statement": "監査再現性改善施策の完了報告が未提出",
+      "source": "internal",
+      "evidence_id": "COMPLY-AUDIT-2026-Q1#AUDIT-01",
+      "evidence_source": "data/board-agent-mock/smarthr/compliance/compliance-audit-findings-smarthr-2026-q1.json",
+      "confidence": 0.94
+    },
+    {
+      "fact_id": "OF-03",
+      "statement": "提携契約の監査同席条項は改訂中で適用開始日未確定",
+      "source": "internal",
+      "evidence_id": "PARTNER-LEGAL-2026",
+      "evidence_source": "data/board-agent-mock/smarthr/compliance/partner-contract-legal-conditions-smarthr-2026.json",
+      "confidence": 0.93
+    },
+    {
+      "fact_id": "OF-08",
+      "statement": "外部価格比較表は最新更新日が未確定",
+      "source": "public",
+      "evidence_id": "PUB-NEWS-SMARTHR",
+      "evidence_source": "data/board-agent-mock/public/news-feed-2026-02.json",
+      "confidence": 0.82
+    }
+  ],
+  "evidence_gaps": [
+    {
+      "fact_id": "OF-05",
+      "gap_reason": "監査ログ改善施策の実装率データ未更新",
+      "required_follow_up": "最新監査実装率を会議資料で提示"
+    },
+    {
+      "fact_id": "OF-06",
+      "gap_reason": "配分承認順序と前提資金条件の紐付け不足",
+      "required_follow_up": "配分順序・資金条件・実行起点日の一致を提示"
+    },
+    {
+      "fact_id": "OF-09",
+      "gap_reason": "規制対応の期限単位（四半期/月次）が不一致",
+      "required_follow_up": "対応期限と責任者を時系列で再定義"
+    }
+  ],
+  "open_items": [
+    {
+      "item_id": "OF-01",
+      "description": "監査再現時間の短縮施策 進捗報告",
+      "owner_candidates": ["CISO"],
+      "deadline": "2026-02-24"
+    },
+    {
+      "item_id": "OF-02",
+      "description": "監査ログ保存先分離の実施結果",
+      "owner_candidates": ["CISO", "法務部長"],
+      "deadline": "2026-02-27"
+    },
+    {
+      "item_id": "OF-03",
+      "description": "提携契約監査同席条項の最終版締結日",
+      "owner_candidates": ["総務部長", "法務部長"],
+      "deadline": "2026-02-28"
+    }
+  ],
+  "review_summary": {
+    "agenda_plus_facts_count": 7,
+    "open_items_count": 9,
+    "evidence_gaps_count": 3,
+    "coverage_score": 0.86
+  }
+}

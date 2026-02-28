@@ -1,0 +1,161 @@
+{
+  "agent": "InMeetingOrchestratorAgentV2",
+  "version": "v2.0",
+  "meeting_id": "SM-2026-02-24",
+  "transcript_source": "transcript/partial/20260224_議事録_SmartHR_30分.md",
+  "urgency_profile": "LowLatency",
+  "alerts": [
+    {
+      "alert_id": "IVA-01",
+      "headline": "監査再現時間の基準が揺れていませんか？",
+      "severity": "High",
+      "issue_type": "logical_jump",
+      "source_scope": "pre_agenda",
+      "trigger": {
+        "speaker": "CISO",
+        "utterance_id": "UT-2026-02-24-01",
+        "line": 3,
+        "time": "10:01:10"
+      },
+      "claim_excerpt": "監査再現性の完了条件を夜間バッチの中央値を15分未満にする",
+      "evidence": {
+        "evidence_id": "OPS-SLA-2026-Q1",
+        "evidence_source": "data/board-agent-mock/smarthr/operations/sla-incident-regression-smarthr-2026-q1.json"
+      },
+      "why_flagged": "事前アジェンダの10分KPIと異なる基準で進める提案があり、適用範囲と承認条件が未提示です。",
+      "question_text": "監査KPIが10分前提のままで、夜間バッチ中央値15分未満を完了条件にする運用は妥当ですか？対象顧客と承認ルートを先に示せますか？",
+      "evidence_notes": [
+        "根拠ID: OPS-SLA-2026-Q1",
+        "root_source: internal"
+      ],
+      "sub_agents": [
+        "PremiseQuestionAgent"
+      ],
+      "action": "post_if"
+    },
+    {
+      "alert_id": "IVA-02",
+      "headline": "提携監査同席の『事前要請制』は条件が十分ですか？",
+      "severity": "High",
+      "issue_type": "premise_question",
+      "source_scope": "internal",
+      "trigger": {
+        "speaker": "外部監査役",
+        "utterance_id": "UT-2026-02-24-02",
+        "line": 11,
+        "time": "10:09:55"
+      },
+      "claim_excerpt": "事前要請制では同席権の実効が維持されるか不明",
+      "evidence": {
+        "evidence_id": "PARTNER-LEGAL-2026;COMPLY-AUDIT-2026-Q1",
+        "evidence_source": "data/board-agent-mock/smarthr/compliance/partner-contract-legal-conditions-smarthr-2026.json"
+      },
+      "why_flagged": "例外条件・適用対象・代替手順が未定義だと監査同席の実行保証が弱いです。",
+      "question_text": "事前要請制を採用する場合、対象顧客・例外条件・監査同席未実施時の代替手順はどこまで決まっていますか？",
+      "evidence_notes": [
+        "根拠ID: PARTNER-LEGAL-2026",
+        "根拠ID: COMPLY-AUDIT-2026-Q1"
+      ],
+      "sub_agents": [
+        "PremiseQuestionAgent",
+        "LogicalJumpCriticAgent"
+      ],
+      "action": "post_if"
+    },
+    {
+      "alert_id": "IVA-03",
+      "headline": "監査再設計とAI改善の同時投入資金前提は明確ですか？",
+      "severity": "High",
+      "issue_type": "evidence_gap",
+      "source_scope": "internal",
+      "trigger": {
+        "speaker": "CFO",
+        "utterance_id": "UT-2026-02-24-03",
+        "line": 13,
+        "time": "10:12:00"
+      },
+      "claim_excerpt": "監査再設計とAI改善を同時投入すると現金不足になる",
+      "evidence": {
+        "evidence_id": "TREAS-13W-2026-01;CF-2026-02;DEBT-2026-02;CAPAL-2026-Q1",
+        "evidence_source": "data/board-agent-mock/smarthr/finance/treasury-runway-13w-2026-01.json"
+      },
+      "why_flagged": "同時実施時の資金配分順序、月次インパクト、優先度が数値化されていません。",
+      "question_text": "監査施策とAI改善を同時に回す場合の月次資金インパクトを、金額・期間・優先順位ごとに明示できますか？",
+      "evidence_notes": [
+        "根拠ID: TREAS-13W-2026-01",
+        "根拠ID: CF-2026-02",
+        "根拠ID: DEBT-2026-02",
+        "根拠ID: CAPAL-2026-Q1"
+      ],
+      "sub_agents": [
+        "FinanceCapitalEvidenceRoutingAgent",
+        "PremiseQuestionAgent"
+      ],
+      "action": "post_if"
+    },
+    {
+      "alert_id": "IVA-04",
+      "headline": "AI施策と解約率改善の因果リンクは確定していますか？",
+      "severity": "High",
+      "issue_type": "logical_jump",
+      "source_scope": "internal",
+      "trigger": {
+        "speaker": "CPO",
+        "utterance_id": "UT-2026-02-24-04",
+        "line": 17,
+        "time": "10:15:30"
+      },
+      "claim_excerpt": "AI誤通知改善が解約率低下に寄与",
+      "evidence": {
+        "evidence_id": "SALES-ECON-2026-Q1;kpi_attrition_rate",
+        "evidence_source": "data/board-agent-mock/smarthr/sales/customer-economic-metrics-2026-q1.json"
+      },
+      "why_flagged": "母集団定義の最終確認前に因果効果を断定しているため、結論が飛躍しています。",
+      "question_text": "AI改善の効果を解約率低下と断定する前提はどこまで確認されているのですか？比較母集団の定義を先に固定してください。",
+      "evidence_notes": [
+        "根拠ID: SALES-ECON-2026-Q1",
+        "根拠ID: kpi_attrition_rate"
+      ],
+      "sub_agents": [
+        "LogicalJumpCriticAgent",
+        "PremiseQuestionAgent"
+      ],
+      "action": "post_if"
+    },
+    {
+      "alert_id": "IVA-05",
+      "headline": "価格施策の適用境界は現場で再現できますか？",
+      "severity": "Medium",
+      "issue_type": "premise_question",
+      "source_scope": "pre_agenda",
+      "trigger": {
+        "speaker": "外部監査役",
+        "utterance_id": "UT-2026-02-24-05",
+        "line": 28,
+        "time": "10:25:50"
+      },
+      "claim_excerpt": "価格施策継続は監査同席条件を満たす顧客限定",
+      "evidence": {
+        "evidence_id": "SALES-ECON-2026-Q1;PARTNER-LEGAL-2026",
+        "evidence_source": "data/board-agent-mock/smarthr/sales/customer-economic-metrics-2026-q1.json"
+      },
+      "why_flagged": "抽出条件が未提示のまま顧客別適用を示すと、現場で判定が分断されます。",
+      "question_text": "価格継続対象の顧客抽出ロジック（対象・除外・反映時刻）を今のこの時点で固定できますか？",
+      "evidence_notes": [
+        "根拠ID: SALES-ECON-2026-Q1",
+        "根拠ID: PARTNER-LEGAL-2026"
+      ],
+      "sub_agents": [
+        "PremiseQuestionAgent"
+      ],
+      "action": "post_if"
+    }
+  ],
+  "deferred_checks": [
+    {
+      "check_id": "DC-01",
+      "urgency": "next_meeting",
+      "item": "2月末にかかる地域別離職率と引継ぎ速度のデータ再統合ルール"
+    }
+  ]
+}

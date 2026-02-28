@@ -8,12 +8,14 @@
   - `alert_id`  
   - `severity`（High / Medium / Low）  
   - `category`（`evidence_gap` / `causal_leap` / `definition_mismatch` / `owner_deadline_missing` / `compliance_risk`）  
+  - `issue_type`（v2では `logical_jump` / `premise_question` / `evidence_gap` を併記推奨）  
   - `statement`  
   - `evidence_ids`（配列）  
   - `evidence_source`（1件以上）  
   - `question` または `required_follow_up`  
   - `confidence`（0〜1）  
   - `impact_score`（0〜1）
+- v2では `InMeetingAlertOutput` に `action`（`post_if` / `hold_if`）を追加し、投稿判断の分離を明確化。  
 - `analysis_taxonomy` は観点メタとして可能な限り付与（例: `financial_balance_breach`, `investment`, `premise_drift` など）。
 - `owner`/`deadline` が分かる場合は `required_follow_up` に明記。
 - `evidence_id` が見つからない主張は `evidence_gap` を最優先。

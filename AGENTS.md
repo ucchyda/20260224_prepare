@@ -4,7 +4,7 @@
 本リポジトリは、取締役会エージェントのモック検証に特化した文書・データのワークスペースです。
 
 - `docs/board-agent/`: 設計ノート（企画、原則、仕様）
-- `docs/board-agent/prompts/`: 各Agent実装用プロンプト（v1.2）
+- `docs/board-agent/prompts/`: 各Agent実装用プロンプト（v1.2 + v2）
 - `data/board-agent-mock/meetings/`: 議事録・取締役会シミュレーション資料
 - `data/board-agent-mock/golden_cases/`: シナリオ検証用の期待出力データ
 - `data/board-agent-mock/kpi/`: KPIデータセット
@@ -20,35 +20,51 @@
 
 本ディレクトリのゴールは2つです。
 
-- 役割1: 会議終了後の「次回会議準備」
+- 役割1: 会議終了後の「次回会議準備」(MeetingPrep)
   - 過去議事録・KPI・公開情報を集約し、次回会議のアジェンダを作成する
   - 各アジェンダ項目に対して、必要情報（社内情報、公開情報、未確定論点）を提示する
   - 参照先: `data/board-agent-mock/meetings/agenda/`, `data/board-agent-mock/meetings/minutes/`, `data/board-agent-mock/meetings/registry/board-meeting-index.json`, `data/board-agent-mock/smarthr/meta/smarthr-evidence-map.json`
 
-- 役割2: 会議中の「論理破綻監査」
+- 役割2: 会議中の「論理破綻監査」（InMeeting）
   - 発言を受けて、前提誤認・因果飛躍・定義不一致・期限/責任未定義・外部環境無視などを即時検知
   - 根拠付きで（`evidence_id`, `evidence_source`, `確認質問`）Teams向けの指摘を生成する
   - 参照先: `data/board-agent-mock/meetings/alerts/`, `data/board-agent-mock/meetings/inmeeting-critic-guide-v1.2.md`, `data/board-agent-mock/meetings/transcript/`, `data/board-agent-mock/smarthr/`
   - 検証手順（固定）:
     1. 文字起こしを時系列で確認する
-    2. 事前に作成したアジェンダ、RACI、社内データ、公開情報を突合し、発言の前提・因果・定義・期限・責任に飛躍や破綻がないか確認する
+    2. 事前に作成した `agenda_plus_facts` と `fact_bundle` を突合し、発言の前提・因果・定義・期限・責任に飛躍や破綻がないか確認する
     3. Teams（または会議チャット）に投入する判断になった場合のみ、質問文に整形して投稿する
   - 各投稿は最低限、以下を併記する
     - 参照した文字起こしの行（対象時刻）
-    - 根拠データ（`evidence_id`, `evidence_source`）
+    - 根拠データ（`evidence_id`, `evidence_source`）※未確定時は `action=hold_if`
     - 回答を促す確認質問
+
+## v2アーキテクチャ運用前提
+
+- 会議前と会議中は `MeetingPrepOrchestratorAgentV2` と `InMeetingOrchestratorAgentV2` に分離して運用する。
+- 会議前エージェントは `meeting_scope=pre` の前提で、原則タイムアウトなしで網羅的ファクト収集を実施する。
+- 会議中エージェントは `urgency_profile=LowLatency`。追加検索は高リスク時・未確定時のみ実行。
+- Premise Question Agent は次を必ず同時検証する。
+  - 事前作成ファクト
+  - 会議中発話（`speaker/utterance_id/line/time`）
+- 投稿候補は `alert`/`action` を必須付きで出す。
+  - `severity`: `High/Medium`
+  - `issue_type`: `logical_jump / premise_question / evidence_gap`
+  - `action`: `post_if` または `hold_if`
+- SmartHRダミーデータ（`data/board-agent-mock/smarthr/*`）は読み取り専用前提。編集対象外。
 
 ### まず確認すべき順番
 
 1. `data/board-agent-mock/meetings/README.md`  
    - ディレクトリ構成と運用ルールを把握
 2. `docs/board-agent/design_philosophy_v1.md`  
-   - 2役割の前提と全体設計を把握
+   - 役割分離（v2を含む）の前提と全体設計を把握
+3. `docs/board-agent/prompts/`  
+   - v2プロンプト（`*-v2.md`）を確認
 3. `data/board-agent-mock/meetings/board-minutes-meta.json` + `data/board-agent-mock/meetings/registry/board-meeting-index.json`  
    - 会議IDと素材の対応を確定
-4. 役割実行
-   - 会議前: `agenda/` `minutes/` を使ってアジェンダ生成
-   - 会議中: `transcript/` と `inmeeting-critic-guide-v1.2.md` を使って監査を実施
+4. 役割実行（v2推奨）
+   - 会議前: `agenda/` `minutes/` `public/` `kpi/` を使って `agenda_plus_facts` を作る
+   - 会議中: `transcript/` と `agenda_plus_facts` を使って `alerts` を生成
 
 ### 会議監査の必須アウトプット（最小要件）
 
@@ -57,6 +73,7 @@
 - `evidence_gap`: 根拠不足の主張をエビデンスIDで明示
 - `alert`（役割2）: High/Mediumで分類した論理破綻指摘
 - 全ての監査コメントは `evidence_id` と `evidence_source`、`確認質問` を同時に持つこと
+- `evidence_gaps` は会議前・会議中で共通スキーマを使うこと
 - 併せて、指摘ごとに「どの情報を参照しているか」を明示する（文字起こし行 + 社内/公開データの場所）。
 
 ## ビルド・実行・開発コマンド
@@ -85,6 +102,20 @@
 - ゴールデンデータ: `data/board-agent-mock/golden_cases/board-input-expected-outputs.json`
 
 Runbookの手順を順に実施し、結果はPRノートに記録してください。
+
+### 2/22（7回目）までの監査フロー（再利用手順）
+
+- 事前準備:
+  - `data/board-agent-mock/meetings/index/` 系は `board-meeting-index.json` で2/22までの `latest` を確認
+  - `runbook/test-scenarios.md` のv2手順で `2月22日までの議事録を入力` を選択
+- 会議前（v2）:
+  - `data/board-agent-mock/meetings/minutes/` から2026-01-06〜2026-02-22を対象
+  - `agenda_plus_facts_v2_YYYYMMDD.md/json` を作成
+- 会議中（v2）:
+  - `transcript/`（partial/complete）をタイムライン順で読み、`inmeeting_alerts_v2_YYYYMMDD.json` を作成
+  - `alerts/論理飛躍監査_チャット質問/` へ質問原稿を保存
+- 検証:
+  - ゴールデンケース `case-v2-prep-01` と `case-v2-meeting-01` の条件に照らし合わせる
 
 ## コミット・プルリクエスト運用
 
@@ -128,3 +159,4 @@ Runbookの手順を順に実施し、結果はPRノートに記録してくだ�
   `data/board-agent-mock/meetings/transcript/論理飛躍監査_チャット質問/20260224_議事録_SmartHR_30分_論理飛躍_チャット投稿質問.md`
   へ保存済み。
 - 以降の運用は、日本語を原則とし、原稿・説明文・保存ファイル名は可能な限り日本語で統一する。
+- 追加: v2運用版のエンドツーエンド試験を最優先。SmartHRダミーデータ未編集前提を厳守し、会議前→会議中を独立エージェントで再現する。
