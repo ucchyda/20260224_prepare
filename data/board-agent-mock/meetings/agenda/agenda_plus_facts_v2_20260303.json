@@ -1,0 +1,300 @@
+{
+  "agent": "MeetingPrepOrchestratorAgentV2",
+  "version": "v2.0",
+  "meeting_id": "SM-2026-03-03",
+  "meeting_scope": "smarthr-board-meeting",
+  "latest_minutes_id": "SM-2026-02-27",
+  "target_minutes_candidates": [
+    "SM-2026-02-27",
+    "SM-2026-02-22",
+    "SM-2026-02-17",
+    "SM-2026-02-10",
+    "SM-2026-02-03"
+  ],
+  "evidence_sources": [
+    "data/board-agent-mock/meetings/board-minutes-meta.json",
+    "data/board-agent-mock/meetings/minutes/20260227_議事録_SmartHR.md",
+    "data/board-agent-mock/meetings/agenda/agenda_plus_facts_v2_20260224.json",
+    "data/board-agent-mock/smarthr/operations/sla-incident-regression-smarthr-2026-q1.json",
+    "data/board-agent-mock/smarthr/compliance/compliance-audit-findings-smarthr-2026-q1.json",
+    "data/board-agent-mock/smarthr/compliance/partner-contract-legal-conditions-smarthr-2026.json",
+    "data/board-agent-mock/smarthr/finance/cash-flow-smarthr-2026-02.json",
+    "data/board-agent-mock/smarthr/finance/balance-sheet-smarthr-2026-02.json",
+    "data/board-agent-mock/smarthr/finance/debt-maturity-vs-covenants-smarthr-2026-02.json",
+    "data/board-agent-mock/smarthr/finance/capital-allocation-pipeline-smarthr-2026-q1.json",
+    "data/board-agent-mock/smarthr/finance/treasury-runway-13w-2026-01.json",
+    "data/board-agent-mock/smarthr/org/compensation-and-headcount-2026.json",
+    "data/board-agent-mock/smarthr/sales/customer-economic-metrics-2026-q1.json",
+    "data/board-agent-mock/smarthr/org/owner-deadline-matrix-2026-q1.json",
+    "data/board-agent-mock/public/news-feed-2026-02.json",
+    "data/board-agent-mock/kpi/kpi-series.json"
+  ],
+  "agenda_plus_facts": [
+    {
+      "item_id": "AF-01",
+      "agenda_title": "監査再現性是正の最終確認",
+      "required_facts": [
+        "OpenItem-01",
+        "OF-AUDIT-01"
+      ],
+      "evidence_refs": [
+        "COMPLY-AUDIT-2026-Q1#AUDIT-01",
+        "OPS-SLA-2026-Q1",
+        "RACI-2026-Q1"
+      ],
+      "owners": [
+        "CTO",
+        "CISO"
+      ],
+      "risk_level": "High",
+      "open_items": [
+        "OpenItem-01"
+      ]
+    },
+    {
+      "item_id": "AF-02",
+      "agenda_title": "3月予算配分確定版の承認可否",
+      "required_facts": [
+        "OpenItem-03",
+        "OpenItem-06",
+        "OpenItem-07"
+      ],
+      "evidence_refs": [
+        "CF-2026-02",
+        "BS-2026-02",
+        "DEBT-2026-02",
+        "CAPAL-2026-Q1",
+        "TREAS-13W-2026-01",
+        "RACI-2026-Q1"
+      ],
+      "owners": [
+        "CFO",
+        "CEO"
+      ],
+      "risk_level": "High",
+      "open_items": [
+        "OpenItem-03"
+      ]
+    },
+    {
+      "item_id": "AF-03",
+      "agenda_title": "AI改善施策（誤通知）実験設計の最終審議",
+      "required_facts": [
+        "OpenItem-02",
+        "OF-KPI-01"
+      ],
+      "evidence_refs": [
+        "SALES-ECON-2026-Q1",
+        "kpi_arr",
+        "kpi_nrr",
+        "COMPLY-AUDIT-2026-Q1"
+      ],
+      "owners": [
+        "CPO",
+        "CTO",
+        "CFO"
+      ],
+      "risk_level": "High",
+      "open_items": [
+        "OpenItem-02"
+      ]
+    },
+    {
+      "item_id": "AF-04",
+      "agenda_title": "営業・CS再配置試験運用の開始可否",
+      "required_facts": [
+        "OpenItem-04",
+        "OpenItem-05"
+      ],
+      "evidence_refs": [
+        "HR-HC-2026-02",
+        "RACI-2026-Q1"
+      ],
+      "owners": [
+        "COO"
+      ],
+      "risk_level": "Medium",
+      "open_items": [
+        "OpenItem-04"
+      ]
+    },
+    {
+      "item_id": "AF-05",
+      "agenda_title": "KPI母集団定義・地域別離職率フォーマットの統一",
+      "required_facts": [
+        "OpenItem-05",
+        "OF-KPI-02"
+      ],
+      "evidence_refs": [
+        "HR-HC-2026-02",
+        "kpi_headcount_trend",
+        "kpi_attrition_rate"
+      ],
+      "owners": [
+        "COO",
+        "CTO",
+        "CFO"
+      ],
+      "risk_level": "Medium",
+      "open_items": [
+        "OpenItem-05"
+      ]
+    },
+    {
+      "item_id": "AF-06",
+      "agenda_title": "外部規制・競合・AIガバナンスの意思決定影響評価",
+      "required_facts": [
+        "OpenItem-08"
+      ],
+      "evidence_refs": [
+        "N-REG-2026-02-01",
+        "N-COMP-2026-02-01",
+        "N-TECH-2026-02-02"
+      ],
+      "owners": [
+        "法務部長",
+        "CPO",
+        "CFO"
+      ],
+      "risk_level": "Low",
+      "open_items": []
+    }
+  ],
+  "fact_bundle": [
+    {
+      "fact_id": "OF-AUDIT-01",
+      "statement": "2/27の監査パイロットは中央値12分まで改善したが、局所で18分超過1件が残る。",
+      "source": "internal",
+      "evidence_id": "OPS-SLA-2026-Q1#INC-2401",
+      "evidence_source": "data/board-agent-mock/smarthr/operations/sla-incident-regression-smarthr-2026-q1.json",
+      "confidence": 0.98
+    },
+    {
+      "fact_id": "OF-KPI-01",
+      "statement": "AI改善施策は対照群・効果指標・実施期間の分離定義が未確定で、実験設計を最終審議する必要がある。",
+      "source": "internal",
+      "evidence_id": "SALES-ECON-2026-Q1#PX-2306",
+      "evidence_source": "data/board-agent-mock/smarthr/sales/customer-economic-metrics-2026-q1.json",
+      "confidence": 0.94
+  },
+    {
+      "fact_id": "OF-KPI-02",
+      "statement": "KPI母集団定義（採用/顧客、地域別離職率）はフォーマット統一が未完了。",
+      "source": "internal",
+      "evidence_id": "HR-HC-2026-02#quality_alerts",
+      "evidence_source": "data/board-agent-mock/smarthr/org/compensation-and-headcount-2026.json",
+      "confidence": 0.9
+    },
+    {
+      "fact_id": "OF-BUDGET-01",
+      "statement": "3月予算は監査40%・採用支援30%・営業施策20%・AI実験10%の暫定比率で、配分確定は3/3が期限。",
+      "source": "internal",
+      "evidence_id": "20260227_minute#budget_ratio",
+      "evidence_source": "data/board-agent-mock/meetings/minutes/20260227_議事録_SmartHR.md",
+      "confidence": 0.96
+    },
+    {
+      "fact_id": "OF-CONTRACT-01",
+      "statement": "提携契約の改訂版は3条項（保存先分離、監査同席権、24時間以内インシデント報告）を正式契約化済み。",
+      "source": "internal",
+      "evidence_id": "PARTNER-LEGAL-2026#A",
+      "evidence_source": "data/board-agent-mock/smarthr/compliance/partner-contract-legal-conditions-smarthr-2026.json",
+      "confidence": 0.97
+    },
+    {
+      "fact_id": "OF-LIQ-01",
+      "statement": "DSCRは1.32だが、10%収益下振れ時は1.08まで悪化しうるため、配分可否判断で資本政策との整合が必要。",
+      "source": "internal",
+      "evidence_id": "DEBT-2026-02#dscr_stress_10pct",
+      "evidence_source": "data/board-agent-mock/smarthr/finance/debt-maturity-vs-covenants-smarthr-2026-02.json",
+      "confidence": 0.93
+    },
+    {
+      "fact_id": "OF-OPER-01",
+      "statement": "COO側の試験運用準備と地域別離職率フォーマット整備は依然進行中で、3月上旬の再会議で再確認が必要。",
+      "source": "meeting-minutes",
+      "evidence_id": "20260227_minute#open_items",
+      "evidence_source": "data/board-agent-mock/meetings/minutes/20260227_議事録_SmartHR.md",
+      "confidence": 0.95
+    }
+  ],
+  "evidence_gaps": [
+    {
+      "fact_id": "OpenItem-06",
+      "gap_reason": "同意文面変更時の保存履歴版管理が進行中（RACI上は2/28期限）だが、3/3時点で完了エビデンスの提出有無が未確定",
+      "required_follow_up": "COMPLY-AUDIT-2026-Q1の同意管理実装状態を、版管理ルールと運用画面付きで確認"
+    },
+    {
+      "fact_id": "OpenItem-07",
+      "gap_reason": "提携B社の監査同席権遡及明示の要否判断がRACIの期限管理で継続",
+      "required_follow_up": "PARTNER-LEGAL-2026のB社監査条項の最終運用条件（遡及対象期間と実装手順）を追加"
+    },
+    {
+      "fact_id": "OpenItem-03",
+      "gap_reason": "予算確定版のDSCR・キャッシュバッファ・月次実行予算の突合結果が未添付",
+      "required_follow_up": "CF/BS/DEBT/treasuryの突合シートを会議1日前までに提出し、監査観点で可読化"
+    },
+    {
+      "fact_id": "OpenItem-02",
+      "gap_reason": "AI実験設計書が未提出で、対照群と評価指標の合意前提が未固定",
+      "required_follow_up": "CPOから設計書（公開版）を3/2中納品し、3/3で審議"
+    }
+  ],
+  "open_items": [
+    {
+      "item_id": "OpenItem-01",
+      "description": "夜間バッチ局所1件のインデックス断片化是正完了",
+      "owner_candidates": ["CTO"],
+      "deadline": "2026-03-03",
+      "risk_level": "High"
+    },
+    {
+      "item_id": "OpenItem-02",
+      "description": "AI改善施策の実験設計書（対照群・効果指標・実施期間）の提出",
+      "owner_candidates": ["CPO"],
+      "deadline": "2026-03-03",
+      "risk_level": "High"
+    },
+    {
+      "item_id": "OpenItem-03",
+      "description": "3月予算配分の確定版作成と財務ストレス試験付き承認版配布",
+      "owner_candidates": ["CFO"],
+      "deadline": "2026-03-03",
+      "risk_level": "High"
+    },
+    {
+      "item_id": "OpenItem-04",
+      "description": "営業・CS再配置試験運用の開始準備と効果測定枠組みの準備",
+      "owner_candidates": ["COO"],
+      "deadline": "2026-03-10",
+      "risk_level": "Medium"
+    },
+    {
+      "item_id": "OpenItem-05",
+      "description": "地域別離職率データの統一フォーマット整備",
+      "owner_candidates": ["COO", "CTO"],
+      "deadline": "2026-03-06",
+      "risk_level": "Medium"
+    },
+    {
+      "item_id": "OpenItem-06",
+      "description": "同意変更履歴の版管理実装（監査再現性）",
+      "owner_candidates": ["法務部長", "CFO"],
+      "deadline": "2026-03-03",
+      "risk_level": "Medium"
+    },
+    {
+      "item_id": "OpenItem-07",
+      "description": "提携B社監査同席権遡及明示の運用可否（追加明文化）",
+      "owner_candidates": ["法務部長"],
+      "deadline": "2026-03-03",
+      "risk_level": "Medium"
+    }
+  ],
+  "review_summary": {
+    "agenda_plus_facts_count": 6,
+    "open_items_count": 7,
+    "evidence_gaps_count": 4,
+    "coverage_score": 0.89
+  }
+}
